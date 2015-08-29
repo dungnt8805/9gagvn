@@ -35,5 +35,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 });
 
 Route::group(['namespace' => 'Frontend'], function () {
-    
+    Route::group(['prefix' => 'post'], function () {
+        Route::get('add',['as'=>'post.add','uses'=>'PostsController@getAdd']);
+    });
 });

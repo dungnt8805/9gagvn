@@ -9,6 +9,7 @@
 namespace App\Http\Controllers\Frontend;
 
 
+use App\Funny\Repositories\CategoryRepositoryInterface;
 use App\Funny\Repositories\PostRepositoryInterface;
 
 class PostsController extends FrontendController
@@ -27,8 +28,9 @@ class PostsController extends FrontendController
     }
 
 
-    public function getAdd()
+    public function getAdd(CategoryRepositoryInterface $category)
     {
-
+        $post = $this->post->getNew();
+        return $this->view('frontend.posts.add', compact('post'));
     }
 }
