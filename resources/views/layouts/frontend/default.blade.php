@@ -24,8 +24,8 @@
     <![endif]-->
 </head>
 <body>
-<header id="header-hav" class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<header id="header-hav" class="navbar navbar-default navbar-fixed-top hl-top-menu-wrap" role="navigation">
+    <div class="container960">
         <div class="navbar-header">
             <a href="/" class="navbar-brand">9GAG</a>
         </div>
@@ -35,7 +35,7 @@
     </div>
 </header>
 <main id="content" role="main" tabindex="-1" style="margin-top: 55px;">
-    <div class="container">
+    <div class="container960">
         @yield('content')
     </div>
 </main>
