@@ -16,6 +16,7 @@ class CreateTablePosts extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
+            $table->integer('store_id');
             $table->tinyInteger('type')->default(1);
             $table->string('title');
             $table->string('thumbnail')->nullable();
@@ -23,14 +24,14 @@ class CreateTablePosts extends Migration
             $table->string('summary');
             $table->text('embed')->nullable();
             $table->text('content');
+            $table->string('code',50);
             $table->integer('views')->unsigned();
             $table->integer('likes')->unsigned();
             $table->boolean('active');
+            $table->text('start');
+            $table->text('expire');
             $table->timestamps();
             $table->softDeletes();
-        });
-        Schema::table('posts', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 
@@ -42,9 +43,6 @@ class CreateTablePosts extends Migration
     public function down()
     {
         //
-        Schema::table("posts", function (Blueprint $table) {
-            $table->dropForeign('posts_user_id_foreign');
-        });
         Schema::drop('posts');
     }
 }

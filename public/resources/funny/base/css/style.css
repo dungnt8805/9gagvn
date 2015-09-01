@@ -1,4 +1,13 @@
 @charset "UTF-8";
+body{
+    font-family:"Open Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:14px;
+    color:#4d4d4d;
+    background-color:#eaeaea;
+}
+a:-webkit-any-link{
+    text-decoration:none;
+}
 ul.ui-autocomplete {
     margin: 0px;
     padding: 3px;
@@ -97,3 +106,18 @@ label {
 }
 
 .container960 .navbar-brand{padding-left:0px; padding-right:0px;}
+.navbar-default{background-color: #ed3239; border-color:#e9141c;}
+.navbar-default{border-bottom: 1px solid #9d181c; box-shadow: 0 1px 6px rgba(0,0,0,0.4);}
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover{color:#eee;}
+.navbar-default .navbar-nav > .open>a:hover, .navbar-default .navbar-nav > .open>a, .navbar-default .navbar-nav > .open>a:focus{background-color: rgba(0,0,0,0.2); color:#fff;}
+.navbar-default .navbar-nav >li > a:focus,.navbar-default .navbar-nav >li > a:hover{color:#fff; background-color:transparent;}
+.navbar-default .navbar-nav >li > a{color:#eee;}
+.navbar-nav > li >a {text-transform:uppercase;}
+.dropdown-menu.login-form{padding:15px; width:260px;}
+#ajax-login #ajax-login-header{font-size:16px; line-height:1.5;}
+#ajax-login #fb_login_form{padding:10px 0; border-bottom:1px dashed #ccc; margin-bottom:10px;}
+#ajax-login a{font-size:13px; text-shadow: none !important;}
+#ajax-login .ajax-login-footer{border-top: 1px dashed #ccc; margin: 15px 0px 0px; padding: 10px 0px 0px;}
+#ajax-login a.small{color:#333; margin-top: 4px;}
+a.facebookConnectionButton,a.facebookConnectionButton:hover,a.facebookConnectionButton:focus {text-decoration:none;}
+.facebookLoginButton{background:#4164a3 url("") no-repeat left center; border-radius:4px; text-align:center; color:#fff; cursor:pointer; display:block; font-size: 14px; line-height:32px; height:32px; text-shadow: rgba(0,0,0,0.5) 0 -1px;-webkit-text-stroke: 1px transparent;}

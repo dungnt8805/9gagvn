@@ -15,7 +15,9 @@ class Post extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-
+    
+    
+    
     /**
      * Query the categories under which the post
      *
@@ -44,5 +46,10 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+    
+    
+    public function store(){
+        return $this->belongsTo(Store::class);
     }
 }

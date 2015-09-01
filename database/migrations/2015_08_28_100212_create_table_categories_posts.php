@@ -19,16 +19,6 @@ class CreateTableCategoriesPosts extends Migration
             $table->integer('category_id')->unsigned();
             $table->timestamps();
         });
-        Schema::table('category_post', function(Blueprint $table) {
-            $table->foreign('post_id')->references('id')->on('posts')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
-        });
-        Schema::table('category_post', function(Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('categories')
-                ->onDelete('restrict')
-                ->onUpdate('restrict');
-        });
     }
 
     /**
