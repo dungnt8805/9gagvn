@@ -27,5 +27,9 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Funny\Repositories\PostRepositoryInterface',
             'App\Funny\Repositories\Eloquent\PostRepository'
         );
+        $this->app->bind(
+            'App\Funny\Repositories\StoreRepositoryInterface',
+            'App\Funny\Repositories\Eloquent\StoreRepository'
+        );
     }
 }

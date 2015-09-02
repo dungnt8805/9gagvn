@@ -28,6 +28,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         'getIndex' => 'admin.categories.index',
         'getView' => 'admin.categories.view'
     ]);
+    Route::controller('stores', 'StoresController', [
+        'getIndex' => 'admin.stores.index',
+        'getView' => 'admin.stores.view'
+    ]);
     Route::controller('posts', 'PostsController', [
         'getIndex' => 'admin.posts.index',
         'getCreate' => 'admin.posts.add'
