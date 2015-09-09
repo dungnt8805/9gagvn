@@ -658,6 +658,10 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('resources/funny/admin/js/pages/dashboard2.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{asset('resouces/funny/admin/js/demo.js')}}"></script>
+<script src="{{asset('resources/funny/admin/js/demo.js')}}"></script>
+<script src="{{asset('resources/components/jquery.slugify.js')}}"></script>
+<script type="text/javascript">
+    $('#slug').slugify('#title');
+</script>
 </body>
 </html>

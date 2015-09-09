@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">
@@ -14,7 +14,15 @@
                 <div class="box-body">
                     <div class="form-group">
                         {!! Form::label('title','Title') !!}
-                        {!! Form::text('title',null,['class'=>'form-control']) !!}
+                        {!! Form::text('title',null,['class'=>'form-control','id'=>'title']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('slug','Slug') !!}
+                        {!! Form::text('slug',null,['class'=>'form-control','id'=>'slug']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('thumbnail','Thumbnail') !!}
+                        @include('layouts.commons.images.upload_image')
                     </div>
                     <div class="form-group">
                         {!! Form::label('link','Link') !!}
@@ -35,7 +43,7 @@
                 {!! Form::close() !!}
             </div>
         </div>
-        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">
@@ -62,6 +70,7 @@
                                 <td>{!! $s->title !!}</td>
                                 <td>{!! $s->slug !!}</td>
                                 <td>{!! $s->link !!}</td>
+                                <td></td>
                             </tr>
                         @endforeach
                         </tbody>

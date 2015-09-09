@@ -40,7 +40,9 @@ return [
         'episode' => 'Episode',
         'url' => 'Url',
         'subtitle' => 'Subtitle',
-        'error' => 'Error'
+        'error' => 'Error',
+        'upload_image_text'=>"Drag and Drop Image",
+        "upload_image_alt_text"=>'Or Click'
     ],
     'actions' => [
         'actions' => 'Actions',
