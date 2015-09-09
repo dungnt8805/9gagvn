@@ -145,7 +145,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         App\Funny\Providers\RepositoryServiceProvider::class,
-        GrahamCampbell\Flysystem\FlysystemServiceProvider::class
+        GrahamCampbell\Flysystem\FlysystemServiceProvider::class,
+
 
     ],
 
