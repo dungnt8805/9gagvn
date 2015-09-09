@@ -6,3 +6,5 @@ Homestead.json
 .idea/
 /storage/
 /docs/
+/public/cache/
+/public/uploads/

@@ -16,6 +16,8 @@ class Category extends Model
 
     protected $dates = ['deleted_at'];
 
+    protected $table = 'categories';
+
     /**
      * Many to Many relation
      *

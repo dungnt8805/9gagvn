@@ -6,6 +6,7 @@
     <title>AdminLTE 2 | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="csrf_token" content="{{ csrf_token() }}">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="{{asset('resources/components/bootstrap/css/bootstrap.min.css')}}">
     <!-- Font Awesome -->
@@ -19,7 +20,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset('resources/funny/admin/css/skins/_all-skins.min.css')}}">
-
+    <link rel="stylesheet" href="{{asset('resources/funny/base/css/dropzone.v2.css')}}"/>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -63,7 +64,8 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                <img src="dist/img/user2-160x160.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Support Team
@@ -71,11 +73,13 @@
                                             </h4>
                                             <p>Why not buy a new awesome theme?</p>
                                         </a>
-                                    </li><!-- end message -->
+                                    </li>
+                                    <!-- end message -->
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="dist/img/user3-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 AdminLTE Design Team
@@ -87,7 +91,8 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="dist/img/user4-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Developers
@@ -99,7 +104,8 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="dist/img/user3-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Sales Department
@@ -111,7 +117,8 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="dist/img/user4-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="dist/img/user4-128x128.jpg" class="img-circle"
+                                                     alt="User Image">
                                             </div>
                                             <h4>
                                                 Reviewers
@@ -143,7 +150,8 @@
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+                                            <i class="fa fa-warning text-yellow"></i> Very long description here that
+                                            may not fit into the page and may cause design problems
                                         </a>
                                     </li>
                                     <li>
@@ -184,12 +192,15 @@
                                                 <small class="pull-right">20%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">20% Complete</span>
                                                 </div>
                                             </div>
                                         </a>
-                                    </li><!-- end task item -->
+                                    </li>
+                                    <!-- end task item -->
                                     <li><!-- Task item -->
                                         <a href="#">
                                             <h3>
@@ -197,12 +208,15 @@
                                                 <small class="pull-right">40%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-green" style="width: 40%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">40% Complete</span>
                                                 </div>
                                             </div>
                                         </a>
-                                    </li><!-- end task item -->
+                                    </li>
+                                    <!-- end task item -->
                                     <li><!-- Task item -->
                                         <a href="#">
                                             <h3>
@@ -210,12 +224,15 @@
                                                 <small class="pull-right">60%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-red" style="width: 60%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">60% Complete</span>
                                                 </div>
                                             </div>
                                         </a>
-                                    </li><!-- end task item -->
+                                    </li>
+                                    <!-- end task item -->
                                     <li><!-- Task item -->
                                         <a href="#">
                                             <h3>
@@ -223,12 +240,15 @@
                                                 <small class="pull-right">80%</small>
                                             </h3>
                                             <div class="progress xs">
-                                                <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                <div class="progress-bar progress-bar-yellow" style="width: 80%"
+                                                     role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                     aria-valuemax="100">
                                                     <span class="sr-only">80% Complete</span>
                                                 </div>
                                             </div>
                                         </a>
-                                    </li><!-- end task item -->
+                                    </li>
+                                    <!-- end task item -->
                                 </ul>
                             </li>
                             <li class="footer">
@@ -246,6 +266,7 @@
                             <!-- User image -->
                             <li class="user-header">
                                 <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
                                 <p>
                                     Alexander Pierce - Web Developer
                                     <small>Member since Nov. 2012</small>
@@ -302,7 +323,8 @@
                 <div class="input-group">
                     <input type="text" name="q" class="form-control" placeholder="Search...">
               <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
               </span>
                 </div>
             </form>
@@ -312,7 +334,8 @@
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active treeview">
                     <a href="#">
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                        <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i
+                                class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
@@ -329,12 +352,14 @@
                         <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
                         <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
                         <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                        <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                        <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed
+                                Sidebar</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="pages/widgets.html">
-                        <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
+                        <i class="fa fa-th"></i> <span>Widgets</span>
+                        <small class="label pull-right bg-green">new</small>
                     </a>
                 </li>
                 <li class="treeview">
@@ -372,7 +397,8 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
-                        <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
+                        <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a>
+                        </li>
                         <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
                     </ul>
                 </li>
@@ -422,11 +448,13 @@
                     <ul class="treeview-menu">
                         <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
                         <li>
-                            <a href="#"><i class="fa fa-circle-o"></i> Level One <i class="fa fa-angle-left pull-right"></i></a>
+                            <a href="#"><i class="fa fa-circle-o"></i> Level One <i
+                                        class="fa fa-angle-left pull-right"></i></a>
                             <ul class="treeview-menu">
                                 <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
                                 <li>
-                                    <a href="#"><i class="fa fa-circle-o"></i> Level Two <i class="fa fa-angle-left pull-right"></i></a>
+                                    <a href="#"><i class="fa fa-circle-o"></i> Level Two <i
+                                                class="fa fa-angle-left pull-right"></i></a>
                                     <ul class="treeview-menu">
                                         <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
                                         <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
@@ -464,8 +492,10 @@
         <!-- Main content -->
         <section class="content">
             @yield('content')
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
 
     <footer class="main-footer">
         @include('layouts.admin._partials.footer')
@@ -487,8 +517,10 @@
                     <li>
                         <a href="javascript::;">
                             <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
                             <div class="menu-info">
                                 <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
                                 <p>Will be 23 on April 24th</p>
                             </div>
                         </a>
@@ -496,8 +528,10 @@
                     <li>
                         <a href="javascript::;">
                             <i class="menu-icon fa fa-user bg-yellow"></i>
+
                             <div class="menu-info">
                                 <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+
                                 <p>New phone +1(800)555-1234</p>
                             </div>
                         </a>
@@ -505,8 +539,10 @@
                     <li>
                         <a href="javascript::;">
                             <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+
                             <div class="menu-info">
                                 <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+
                                 <p>nora@example.com</p>
                             </div>
                         </a>
@@ -514,13 +550,16 @@
                     <li>
                         <a href="javascript::;">
                             <i class="menu-icon fa fa-file-code-o bg-green"></i>
+
                             <div class="menu-info">
                                 <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
                                 <p>Execution time 5 seconds</p>
                             </div>
                         </a>
                     </li>
-                </ul><!-- /.control-sidebar-menu -->
+                </ul>
+                <!-- /.control-sidebar-menu -->
 
                 <h3 class="control-sidebar-heading">Tasks Progress</h3>
                 <ul class="control-sidebar-menu">
@@ -530,6 +569,7 @@
                                 Custom Template Design
                                 <span class="label label-danger pull-right">70%</span>
                             </h4>
+
                             <div class="progress progress-xxs">
                                 <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
                             </div>
@@ -541,6 +581,7 @@
                                 Update Resume
                                 <span class="label label-success pull-right">95%</span>
                             </h4>
+
                             <div class="progress progress-xxs">
                                 <div class="progress-bar progress-bar-success" style="width: 95%"></div>
                             </div>
@@ -552,6 +593,7 @@
                                 Laravel Integration
                                 <span class="label label-warning pull-right">50%</span>
                             </h4>
+
                             <div class="progress progress-xxs">
                                 <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
                             </div>
@@ -563,48 +605,58 @@
                                 Back End Framework
                                 <span class="label label-primary pull-right">68%</span>
                             </h4>
+
                             <div class="progress progress-xxs">
                                 <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
                             </div>
                         </a>
                     </li>
-                </ul><!-- /.control-sidebar-menu -->
+                </ul>
+                <!-- /.control-sidebar-menu -->
 
-            </div><!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-pane -->
 
             <!-- Settings tab content -->
             <div class="tab-pane" id="control-sidebar-settings-tab">
                 <form method="post">
                     <h3 class="control-sidebar-heading">General Settings</h3>
+
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
                             Report panel usage
                             <input type="checkbox" class="pull-right" checked>
                         </label>
+
                         <p>
                             Some information about this general settings option
                         </p>
-                    </div><!-- /.form-group -->
+                    </div>
+                    <!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
                             Allow mail redirect
                             <input type="checkbox" class="pull-right" checked>
                         </label>
+
                         <p>
                             Other sets of options are available
                         </p>
-                    </div><!-- /.form-group -->
+                    </div>
+                    <!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
                             Expose author name in posts
                             <input type="checkbox" class="pull-right" checked>
                         </label>
+
                         <p>
                             Allow the user to show his name in blog posts
                         </p>
-                    </div><!-- /.form-group -->
+                    </div>
+                    <!-- /.form-group -->
 
                     <h3 class="control-sidebar-heading">Chat Settings</h3>
 
@@ -613,30 +665,40 @@
                             Show me as online
                             <input type="checkbox" class="pull-right" checked>
                         </label>
-                    </div><!-- /.form-group -->
+                    </div>
+                    <!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
                             Turn off notifications
                             <input type="checkbox" class="pull-right">
                         </label>
-                    </div><!-- /.form-group -->
+                    </div>
+                    <!-- /.form-group -->
 
                     <div class="form-group">
                         <label class="control-sidebar-subheading">
                             Delete chat history
                             <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
                         </label>
-                    </div><!-- /.form-group -->
+                    </div>
+                    <!-- /.form-group -->
                 </form>
-            </div><!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-pane -->
         </div>
-    </aside><!-- /.control-sidebar -->
+    </aside>
+    <!-- /.control-sidebar -->
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 
-</div><!-- ./wrapper -->
+</div>
+<!-- ./wrapper -->
+<script type="text/javascript">
+    // var main_url
+    var main_url = '{!! Config::get('app.url') !!}';
+</script>
 
 <!-- jQuery 2.1.4 -->
 <script src="{{asset('resources/components/jquery-2.1.4.min.js')}}"></script>
@@ -663,5 +725,7 @@
 <script type="text/javascript">
     $('#slug').slugify('#title');
 </script>
+@section('extend_script')
+@show
 </body>
 </html>

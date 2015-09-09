@@ -4,7 +4,7 @@
  * @date 8/28/2015
  */
 
-namespace app\Funny\Models;
+namespace App\Funny\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
@@ -14,6 +14,8 @@ class Media extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+    protected $table = 'medias';
 
     public function user(){
         return $this->belongsTo();

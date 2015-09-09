@@ -46,7 +46,12 @@ class StoresController extends AdminController
         if (!$form->isValid()) {
             return $this->redirectBack()->withErrors($form->getErrors())->withInput();
         }
-        $store = $this->store->create($form->getInputData());
+        $data = $form->getInputData();
+        if (isset($data['is_avatar'])) {
+            $data['thumbnail'] = $data['is_avatar'];
+            unset($data['is_avatar']);
+        }
+        $store = $this->store->create($data);
         return $this->redirectRoute('admin.stores.index');
     }
 }

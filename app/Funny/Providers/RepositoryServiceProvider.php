@@ -31,5 +31,9 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Funny\Repositories\StoreRepositoryInterface',
             'App\Funny\Repositories\Eloquent\StoreRepository'
         );
+        $this->app->bind(
+            'App\Funny\Repositories\Contracts\MediaRepositoryInterface',
+            'App\Funny\Repositories\Eloquent\MediaRepository'
+        );
     }
 }

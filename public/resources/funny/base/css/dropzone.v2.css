@@ -1,0 +1,131 @@
+.box-add-img-select {
+    background-color: #f8f8f8;
+    border: 1px dashed #d6d6d6;
+    border-radius: 3px;
+    width: auto;
+}
+
+.box-add-img-select .thump {
+    float: left;
+    margin: 10px 0 0 10px;
+}
+
+.box-add-img-select .thump .item-pic {
+    border: 1px solid #d6d6d6;
+    height: 90px;
+    overflow: hidden;
+    width: 90px;
+}
+
+.box-add-img-select .thump .item-pic img {
+    height: auto;
+    width: 90px;
+}
+
+.box-add-img-select .thump .item-pic .number {
+    background-color: #fff;
+    border: 1px solid #d6d6d6;
+    font-size: 12px;
+    font-weight: bold;
+    left: 2px;
+    line-height: 13px;
+    padding: 3px 6px 4px;
+    top: 2px;
+}
+
+.box-add-img-select .thump .item-pic .tool {
+    background-color: #fff;
+    border: 1px solid #d6d6d6;
+    padding: 1px 3px;
+    right: 2px;
+    top: 2px;
+}
+
+.box-add-img-select .thump .item-pic .tool a {
+    margin: 0 3px;
+}
+
+.plus, .chose-pic, .trash {
+    background: url("../icons/icons-post-article.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+}
+
+.tooltip-1 .row {
+    background-color: #ff0;
+    border: 1px solid #d7d7d7;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 24px;
+    padding: 0 10px;
+    position: relative;
+}
+
+.tooltip-1 {
+    width: auto;
+    z-index: 1;
+}
+
+.plus {
+    background-position: -29px 0;
+    display: block;
+    height: 23px;
+    margin: 0 0 0 30px;
+    width: 23px;
+}
+
+.chose-pic {
+    background-position: 0 0;
+    height: 12px;
+    width: 8px;
+}
+
+.trash {
+    background-position: -14px 0;
+    height: 12px;
+    width: 10px;
+}
+
+.thump input {
+    bottom: -1px;
+    height: 13px;
+    width: 13px;
+}
+
+.box-add-img-select .btn-plus {
+    border: 1px dashed #d6d6d6;
+    border-radius: 3px;
+    color: #666;
+    height: 60px;
+    padding-top: 30px;
+    text-align: center;
+    width: 90px;
+}
+
+.paddingTB10 {
+    padding: 10px 0;
+}
+
+.marginT10 {
+    margin-top: 10px !important;
+}
+#container-upload .arrow-box-login{
+    transform: rotate(225deg) !important;
+}
+
+.arrow-box-login {
+    width: 13px;
+    z-index: 10;
+    height: 13px;
+    -webkit-transform: translateX(-9px) translateY(1px) rotate(45deg);
+    transform: translateX(-9px) translateY(1px) rotate(45deg);
+    background-color: #FFF;
+    display: inline-block;
+    position: absolute;
+    right: 27px;
+    top: -8px;
+    border-top: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+}
+.positionA{position: absolute}
+.positionR{position: relative}

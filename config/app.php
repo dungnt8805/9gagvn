@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => 'http://9gag.dev',
 
     /*
     |--------------------------------------------------------------------------
@@ -146,6 +146,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         App\Funny\Providers\RepositoryServiceProvider::class,
         GrahamCampbell\Flysystem\FlysystemServiceProvider::class,
+//        \App\Funny\Facades\ImageFacade::class,
 
 
     ],
@@ -197,7 +198,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'HTML' => Collective\Html\HtmlFacade::class,
-        'Flysystem' => GrahamCampbell\Flysystem\Facades\Flysystem::class
+        'Flysystem' => GrahamCampbell\Flysystem\Facades\Flysystem::class,
+        'ImageManager' => \App\Funny\Facades\ImageFacade::class,
+        'Timthumb' => \App\Funny\Facades\TimthumbFacade::class,
 
     ],
 
