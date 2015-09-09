@@ -29,10 +29,10 @@ interface CategoryRepositoryInterface
      * Find all categories
      *
      * @param string $orderColumn
-     * @param string $oderDir
+     * @param string $orderDir
      * @return mixed
      */
-    public function findAll($orderColumn = 'created_at',$oderDir = 'desc');
+    public function findAll($orderColumn = 'created_at',$orderDir = 'desc');
 
     /**
      * Delete the specified category from the database.

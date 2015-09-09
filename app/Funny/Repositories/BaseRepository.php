@@ -78,6 +78,13 @@ abstract class BaseRepository
         return $model;
     }
 
+    /**
+     * update model to database
+     *
+     * @param $array
+     * @param int $id
+     * @return \App\Models\Model
+     */
     public function update($array, $id = 0)
     {
         $id = $id != 0 ? $id : $array['id'];
@@ -89,6 +96,11 @@ abstract class BaseRepository
         }
         $model->save();
         return $model;
+    }
+
+    public function findAll($orderColumn = 'create_at', $orderDir = 'desc')
+    {
+        return $this->model->orderBy($orderColumn, $orderDir)->get();
     }
 
 }

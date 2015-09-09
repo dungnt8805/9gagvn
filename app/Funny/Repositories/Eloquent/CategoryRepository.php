@@ -20,7 +20,6 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
         $this->model = $category;
     }
 
-
     /**
      * Get an array of key-value pairs of all categories
      *
@@ -50,13 +49,28 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
      * Find all categories
      *
      * @param string $orderColumn
-     * @param string $oderDir
+     * @param string $orderDir
      * @return mixed
      */
-    public function findAll($orderColumn = 'created_at', $oderDir = 'desc')
+    public function findAll($orderColumn = 'created_at', $orderDir = 'desc')
     {
-        $categories = $this->model->orderBy($orderColumn, $oderDir)->get();
+        $categories = $this->model->orderBy($orderColumn, $orderDir)->get();
         return $categories;
+    }
+
+    /**
+     * Delete the specified category from the database.
+     *
+     * @param  mixed $id
+     * @return void
+     */
+    public function _delete($id)
+    {
+        $model = $this->findById($id);
+        if (!is_null($model)) {
+            $this->model->where('parent_id', '=', $model->id)->update(['parent_id' => $model->parent_id]);
+            $model->delete();
+        }
     }
 
     /**
@@ -79,18 +93,5 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
         return new CategoryPresenter;
     }
 
-    /**
-     * Delete the specified category from the database.
-     *
-     * @param  mixed $id
-     * @return void
-     */
-    public function _delete($id)
-    {
-        $model = $this->findById($id);
-        if (!is_null($model)) {
-            $this->model->where('parent_id', '=', $model->id)->update(['parent_id' => $model->parent_id]);
-            $model->delete();
-        }
-    }
+
 }

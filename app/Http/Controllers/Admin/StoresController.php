@@ -25,15 +25,28 @@ class StoresController extends AdminController
         $this->store = $store;
     }
 
+    /**
+     * Show admin store index page
+     */
     public function getIndex()
     {
         $store = $this->store->getNew();
-        $stores = [];
-        return $this->view('admin.stores.index', compact('store'));
+        $stores = $this->store->findAll();
+        return $this->view('admin.stores.index', compact('store', 'stores'));
     }
 
+    /**
+     * Handle the creation of the store
+     *
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function postIndex()
     {
-
+        $form = $this->store->getForm();
+        if (!$form->isValid()) {
+            return $this->redirectBack()->withErrors($form->getErrors())->withInput();
+        }
+        $store = $this->store->create($form->getInputData());
+        return $this->redirectRoute('admin.stores.index');
     }
 }
