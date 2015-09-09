@@ -65,7 +65,7 @@
                         @foreach($stores as $s)
                             <tr>
                                 <td>
-
+                                    {!! HTML::image(Timthumb::link($s->thumbnail,100,50,1),$s->title) !!}
                                 </td>
                                 <td>{!! $s->title !!}</td>
                                 <td>{!! $s->slug !!}</td>
