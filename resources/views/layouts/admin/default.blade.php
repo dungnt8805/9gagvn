@@ -21,6 +21,7 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset('resources/funny/admin/css/skins/_all-skins.min.css')}}">
     <link rel="stylesheet" href="{{asset('resources/funny/base/css/dropzone.v2.css')}}"/>
+    <link rel="stylesheet" href="{{asset('resources/funny/base/css/backend.css')}}"/>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -722,6 +723,14 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('resources/funny/admin/js/demo.js')}}"></script>
 <script src="{{asset('resources/components/jquery.slugify.js')}}"></script>
+
+<script src="{{asset('resources/components/ckeditor/ckeditor.js')}}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        CKEDITOR.replace('ckeditor', {toolbar: 'CusToolbar', height: '400px'})
+    });
+</script>
+<script src="{{asset('resources/funny/base/js/post_item.js')}}"></script>
 <script type="text/javascript">
     $('#slug').slugify('#title');
 </script>

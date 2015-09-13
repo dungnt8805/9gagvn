@@ -46,6 +46,19 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
     }
 
     /**
+     * Get an list multi select of all categories
+     *
+     * @return string
+     */
+    public function multiChoice($selected = null)
+    {
+        $categories = $this->findAll('id', 'asc');
+        $sorted = $this->getPresenter()->sortedTree($categories);
+        $multi = $this->getPresenter()->multiChoice($sorted, $selected);
+        return $multi;
+    }
+
+    /**
      * Find all categories
      *
      * @param string $orderColumn

@@ -64,4 +64,6 @@ abstract class Controller extends BaseController
     {
         return \Response::json($data);
     }
+
+
 }

@@ -51,7 +51,8 @@ class MediasController extends FrontendController
                 $media = $this->media->create($media_data);
                 $url = $media->file_path . '/' . $media->file_name;
                 $json['error'] = 'success';
-                $json['id'] = "uploads/" . $url;
+                $json['id'] = $media->id;
+                $json['is_avatar'] = $url;
                 $json['image_thumb'] = Timthumb::link($url, 90, 90, 1);
                 $json['image_500'] = Timthumb::link($url, 550, 500, 1);
                 $json['image_max'] = Timthumb::link($url, 800, 800);
@@ -61,6 +62,21 @@ class MediasController extends FrontendController
             }
         }
 
+        return $this->json($json);
+
+    }
+
+    public function postDelete()
+    {
+        $id = \Input::get('id');
+        $media = $this->media->findById($id);
+        $json = ['error' => 'success'];
+        if ($media) {
+            $path = $media->file_path . '/' . $media->file_name;
+            $delete = ImageManager::deleteFile($path);
+            $media->forceDelete();
+        } else
+            $json['error'] = 'not_exists';
         return $this->json($json);
 
     }

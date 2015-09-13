@@ -107,7 +107,7 @@ uploadMulti.Upload = function (button, id_container, url) {
             jQuery('.process_img_' + file.id).hide();
 
             jQuery('.number_img_' + file.id).text(position_img).show();
-            jQuery('#is_avatar_' + file.id).val(json.id);
+            jQuery('#is_avatar_' + file.id).val(json.is_avatar);
             jQuery(".tooltip-1").show(); //tool tip chèn ảnh
 
             if (position_img == 1) { //ảnh đầu tiên là ảnh đại diện luôn

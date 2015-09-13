@@ -24,7 +24,7 @@ class CategoryPresenter
             $ref = &$refs[$s->id];
             $ref['id'] = $s->id;
             $ref['parent_id'] = $s->parent_id;
-            $ref['title'] = $s->title;
+            $ref['title'] = ucwords($s->title);
             $ref['slug'] = $s->slug;
             $ref['description'] = $s->description;
             if ($s->parent_id == 0) {
@@ -59,6 +59,22 @@ class CategoryPresenter
         return $html;
     }
 
+    public function multiChoice(array $array, $selected = null, $parent = 'parent')
+    {
+        $html = '<ul class="multi-tree ' . $parent . '">' . PHP_EOL;
+
+        foreach ($array as $value) {
+            $checked = in_array($value['id'], $selected) ? "checked" : "";
+            $html .= '<li><label><input type="checkbox" ' . $checked . ' value="' . $value['id'] . '" name="categories[]"/>' . $value['title'] . '</label>';
+            if (!empty($value['children'])) {
+                $html .= $this->multiChoice($value['children'], '');
+            }
+            $html .= '</li>' . PHP_EOL;
+        }
+        $html .= '</ul>' . PHP_EOL;
+        return $html;
+    }
+
     /**
      * Generate categories tree to select box
      *
@@ -72,7 +88,7 @@ class CategoryPresenter
     {
         foreach ($source as $value) {
             if ($value['id'] != $except) {
-                $lists[$value['id']] = str_repeat('— ', $repeat) . $value['title'];
+                $lists[$value['id']] = str_repeat('— ', $repeat) . ucwords($value['title']);
                 if (!empty($value['children'])) {
                     $lists = $this->selectBoxTree($value['children'], $lists, $repeat + 1, $except);
                 }

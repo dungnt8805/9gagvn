@@ -18,7 +18,7 @@ class Timthumb
             if (preg_match("/(\.)*ytimg\.com\/.*/", $url)) {
                 return $url;
             } else if (!preg_match("/http:/", $url)) {
-                $url = Config::get('app.url') . '/uploads/' . $url;
+                $url = Config::get('app.url') . '/' . $url;
             }
             return Config::get('app.url') . '/thumb.php?src=' . urlencode($url) . '&w=' . $width . '&h=' . $height . '&zc=' . $zc;
         } else {

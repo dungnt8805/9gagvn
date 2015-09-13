@@ -24,7 +24,7 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Funny\Repositories\Eloquent\CategoryRepository'
         );
         $this->app->bind(
-            'App\Funny\Repositories\PostRepositoryInterface',
+            'App\Funny\Repositories\Contracts\PostRepositoryInterface',
             'App\Funny\Repositories\Eloquent\PostRepository'
         );
         $this->app->bind(
@@ -34,6 +34,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Funny\Repositories\Contracts\MediaRepositoryInterface',
             'App\Funny\Repositories\Eloquent\MediaRepository'
+        );
+
+        $this->app->bind(
+            'App\Funny\Repositories\Contracts\TagRepositoryInterface',
+            'App\Funny\Repositories\Eloquent\TagRepository'
         );
     }
 }

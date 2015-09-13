@@ -77,9 +77,20 @@ class Image
         if ($upload) {
             $return['status'] = 'success';
             $return['file_name'] = $file_name;
-            $return['folder'] = $folder;
+            $return['folder'] = "uploads$folder";
         }
         return $return;
+    }
+
+    public function deleteFile($path)
+    {
+        $path = $this->cleanFolder($path);
+
+        if (!$this->disk->exists($path)) {
+            return "File does not exist.";
+        }
+
+        return $this->disk->delete($path);
     }
 
 }

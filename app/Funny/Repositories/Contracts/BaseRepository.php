@@ -19,6 +19,15 @@ abstract class BaseRepository
     protected $model;
 
     /**
+     * Get model
+     *
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function getModel(){
+        return $this->model;
+    }
+
+    /**
      * Get a new instance of the model
      *
      * @param array $attributes
