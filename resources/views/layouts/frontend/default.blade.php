@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="{{asset('resources/funny/base/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('resources/funny/base/css/dropzone.v2.css')}}"/>
+    <link rel="stylesheet" href="{{asset('resources/funny/base/css/9gag.css')}}"/>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -35,18 +36,22 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="navbar-nav nav">
-                
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                @include('layouts.frontend._partials.ajax_login_form')
+                @if(Auth::check())
+                    @include("layouts.frontend._partials.user_tools")
+                @else
+                    @include('layouts.frontend._partials.ajax_login_form')
+                @endif
             </ul>
         </div>
 
         <nav class="navbar-collapse bs-navbar-collapse collapse" aria-expanded="false" style="height: 1px">
-            
+
         </nav>
         <div class="pull-right hidden-xs">
-            
+
         </div>
     </div>
 </header>
@@ -55,8 +60,23 @@
         @yield('content')
     </div>
 </main>
+<div id="postModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Post a fun</h4>
+            </div>
+            <div class="modal-body">
 
-        <!-- jQuery 2.1.4 -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- jQuery 2.1.4 -->
 <script src="{{asset('resources/components/jquery-2.1.4.min.js')}}"></script>
 <!-- Bootstrap 3.3.5 -->
 <script src="{{asset('resources/components/bootstrap/js/bootstrap.min.js')}}"></script>

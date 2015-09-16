@@ -1,5 +1,4 @@
 @extends("layouts.frontend.default")
-
 @section("content")
 <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0 centered-page">
     <div class="panel panel-primary">
@@ -8,6 +7,12 @@
         </div>
         <div class="panel-body">
             {!! Form::open(['url'=>'/auth/register','class'=>'form-vertical']) !!}
+                <div class="form-group">
+                    {!! Form::label('name','Name') !!}
+                    <div class="controls">
+                        {!! Form::text('name',old('name'),['class'=>'form-control input-lg','id'=>'name']) !!}
+                    </div>
+                </div>
                 <div class="form-group">
                     {!! Form::label('email','Email') !!}
                     <div class="controls">

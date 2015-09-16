@@ -22,9 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('activation_code', 255)->nullable();
             $table->string('avatar')->nullable();
             $table->timestamp('last_login');
-            $table->string('first_name', 50)->nullable();
-            $table->string('middle_name', 50)->nullable();
-            $table->string('last_name', 50)->nullable();
+            $table->string('name', 50)->nullable();
             $table->boolean('gender')->default(true);
             $table->string('birth_day',2)->nullable();
             $table->string('birth_month',2)->nullable();

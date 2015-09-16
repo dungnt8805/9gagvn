@@ -20,7 +20,20 @@ class HomeController extends FrontendController
      * Show the homepage
      * @return \View
      */
-    public function getIndex(){
-        return $this->view('frontend.home.index');
+    public function getIndex()
+    {
+
+        $post = new \stdClass();
+        $post->id = 'aaaa';
+        $post->title = "Happy 30th birthday, Mario";
+        $post->type = 1;
+        $post->thumbnail = "http://img-9gag-fun.9cache.com/photo/a1Y0n5D_700b.jpg";
+        $post->comments = 68;
+        $post->votes = "10,145";
+        $posts = [];
+        for ($i = 0; $i < 10; $i++) {
+            $posts[] = $post;
+        }
+        return $this->view('frontend.home.index',compact('posts'));
     }
 }

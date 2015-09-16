@@ -1,0 +1,33 @@
+section#list-view-2{margin: 20px 0 0}
+section#list-view-2 article:first-child{border: 0; padding: 0}
+section#list-view-2 article{margin-bottom: 30px; border-top: 1px solid #eee; padding: 20px 0 0}
+section#list-view-2 header{margin-bottom: 10px; position: relative}
+section#list-view-2 h2{word-wrap: break-word}
+section#list-view-2 h2 a{font-size: 20px; color: #000;}
+section#list-view-2 .post-container{width: 500px; position: relative}
+section#list-view-2 .post-container a{display: block}
+section#list-view-2 .post-container a img{display: block; width: 500px; border: 0}
+.post-text-container{font-size: 16px; line-height: 24px}
+section#list-view-2 p.post-meta{color: #999; margin: 10px 0}
+section#list-view-2 p.post-meta a{color: #999}
+
+.post-afterbar-a.in-list-view{width: 500px}
+.post-afterbar-a.in-list-view{margin: 10px 0; padding-bottom: 0; position: relative;}
+.left{float: left !important;}
+.right{float:right !important;}
+.btn-vote{overflow: hidden}
+.btn-vote li{margin: 0 10px 0 0; float: left; list-style: none}
+.btn-vote a{box-sizing: border-box; border: 1px solid #ddd; border-radius: 3px; width: 44px; height: 34px; display: block; text-indent: -999px}
+.btn-vote a:hover{border: 1px solid #989595}
+.btn-vote .down{background: url("../images/sticky-vote.png") no-repeat 0 -32px;}
+.btn-vote .up{background: url("../images/sticky-vote.png") no-repeat}
+.btn-vote .comment{background: url("../images/other-buttons.png") no-repeat 0 -32px;}
+.post-afterbar-a .share{float: left;}
+.post-afterbar-a .share ul{overflow: hidden; list-style: none}
+.post-afterbar-a .share.right li{margin: 0 0 0 10px;}
+.post-afterbar-a .share li{float:left; margin-right: 10px;}
+.post-afterbar-a .btn-share{display: block; color: #fff; font-weight: 700; height: 34px; background-color: #f4f4f4; line-height: 34px; padding: 0 15px 0 34px; border-radius: 3px;text-align: center}
+.post-afterbar-a .btn-share.facebook{background: #3b5998 url("../images/sharing-button-a.png") 0 0 no-repeat;}
+.post-afterbar-a .btn-share.facebook:hover,.post-afterbar-a .in-post-bot .btn-share.facebook:hover{background-color: #4c70ba}
+.post-afterbar-a .btn-share.twitter{background: #00aced url("../images/sharing-button-a.png") 0 -34px no-repeat;}
+.post-afterbar-a .btn-share.twitter:hover,.post-afterbar-a .in-post-bot .btn-share.twitter:hover{background-color: #21c2ff}

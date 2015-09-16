@@ -1,5 +1,5 @@
 <li class="dropdown">
-    <a href="" class="visible-xs"><span>
+    <a href="/auth/login" class="visible-xs"><span>
                         <i class="fa fa-user">
                             Login / Register
                         </i>
@@ -8,6 +8,7 @@
         <i class="fa fa-user"></i> Login
         <b class="caret"></b>
     </a>
+
     <div class="dropdown-menu login-form">
         <div id="ajax-login">
             <div id="ajax-login-header">Login to 9gag</div>
@@ -34,11 +35,12 @@
             </div>
             <div class="ajax-login-footer">
                 <a class="btn btn-link" id="register-button">Create new profile
-                                    <i class="fa fa-caret-right"></i>
-                                </a>
+                    <i class="fa fa-caret-right"></i>
+                </a>
 
                 <div class="action pull-right">
-                    <span id="login-ajax-wait" class="hide"><i class="mini-loader"></i></span> {!! Form::submit('Log In',['class'=>'btn btn-primary','id'=>'loginButton']) !!}
+                    <span id="login-ajax-wait" class="hide"><i
+                                class="mini-loader"></i></span> {!! Form::submit('Log In',['class'=>'btn btn-primary','id'=>'loginButton']) !!}
                 </div>
             </div>
             {!! Form::close() !!} {!! Form::open(['id'=>'ajax-signup-form','class'=>'form-vertical','role'=>'form','style'=>'display:none']) !!}
@@ -56,14 +58,16 @@
             </div>
             <div class="form-group checkbox">
                 <label class="control-label" for="agree">
-                    {!! Form::checkbox("agree",null,['id'=>"agree"]) !!} I agree to the <a href="" target="_blank">Terms Of Service</a>
+                    {!! Form::checkbox("agree",null,['id'=>"agree"]) !!} I agree to the <a href="" target="_blank">Terms
+                        Of Service</a>
                 </label>
             </div>
             <div class="ajax-login-footer">
                 <a class="btn btn-link" id="register-button-back"><i class="fa fa-caret-left"></i> Back to login</a>
 
                 <div class="action pull-right">
-                    <span id="register-ajax-wait" class="hide"><i class="mini-loader"></i></span> {!! Form::submit('Signup',['class'=>'btn btn-primary', 'id'=>'registerButton']) !!}
+                    <span id="register-ajax-wait" class="hide"><i
+                                class="mini-loader"></i></span> {!! Form::submit('Signup',['class'=>'btn btn-primary', 'id'=>'registerButton']) !!}
                 </div>
             </div>
             {!! Form::close() !!}
