@@ -24,14 +24,18 @@ class CreateTablePosts extends Migration
             $table->string('summary');
             $table->text('embed')->nullable();
             $table->text('content');
-            $table->string('code',50);
+            $table->string('code', 10)->unique();
             $table->integer('views')->unsigned();
             $table->integer('likes')->unsigned();
+            $table->integer('dislikes')->default(0)->unsigned();
+            $table->integer('comments')->default(0)->unsigned();
+            $table->boolean('not_safe_for_work')->default(false);
             $table->boolean('active');
             $table->text('start');
             $table->text('expire');
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 

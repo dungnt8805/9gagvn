@@ -16,7 +16,15 @@ class Post extends Model
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 
+    /**
+     * @var string
+     */
     protected $table = 'posts';
+
+    /**
+     * @var array
+     */
+    protected $fillable = ['code', 'user_id'];
 
     /**
      * Query the categories under which the post
@@ -52,5 +60,15 @@ class Post extends Model
     public function store()
     {
         return $this->belongsTo(Store::class);
+    }
+
+    /**
+     * Query comments which the post
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

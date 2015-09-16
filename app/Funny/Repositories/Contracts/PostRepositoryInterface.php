@@ -73,4 +73,18 @@ interface PostRepositoryInterface
      */
     public function edit($id);
 
+    /**
+     * auto generate identity string
+     *
+     * @return string
+     */
+    public function generateId();
+
+    /**
+     * create new instance with id
+     *
+     * @return static
+     */
+    public function _getNew();
+
 }

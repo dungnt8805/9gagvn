@@ -15,6 +15,7 @@ use App\Funny\Repositories\Contracts\TagRepositoryInterface;
 use App\Funny\Repositories\StoreRepositoryInterface;
 use App\Funny\Services\Forms\PostForm;
 use Illuminate\Support\Str;
+use Auth;
 
 class PostRepository extends BaseRepository implements PostRepositoryInterface
 {
@@ -124,7 +125,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
      */
     public function updatePost($data, $id = 0, $user_id = null)
     {
-        $post = ($id == 0) ? $this->getNew() : $this->findById($id);
+        $post = ($id == 0) ? $this->_getNew() : $this->findById($id);
 
         $categories = [];
         $tags = '';
@@ -174,7 +175,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     public function index($n, $q = null, $category = null, $user_id = null, $orderBy = 'created_at', $direction = 'desc')
     {
         $query = $this->model->select('posts.id', 'posts.title', 'posts.created_at', 'posts.active', 'posts.slug'
-            , 'posts.thumbnail', 'posts.summary', 'posts.views'
+            , 'posts.thumbnail', 'posts.summary', 'posts.views', 'posts.code'
 //            , 'users.id', 'username'
         )
 //            ->join('users', 'users.id', '=', 'posts.user_id')
@@ -206,5 +207,42 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     public function edit($id)
     {
         return $this->model->with('categories', 'tags')->findOrFail($id);
+    }
+
+    /**
+     * auto generate identity string
+     *
+     * @return string
+     */
+    public function generateId()
+    {
+        $ids = [];
+        $ids = $this->model->lists('code');
+        $id = randomString(8);
+        while (is_array($ids) && in_array($id, $ids)) {
+            $id = randomString(8);
+        }
+        return $id;
+    }
+
+    /**
+     * create new instance with id
+     *
+     * @return static
+     */
+    public function _getNew()
+    {
+        return $this->getNew(['code' => $this->generateId(), 'user_id' => Auth::user()->id]);
+    }
+
+
+    public function getByCode($code)
+    {
+        $query = $this->model->select('posts.id', 'posts.code', 'posts.title', 'posts.thumbnail', 'posts.type', 'posts.embed'
+            , 'posts.summary', 'posts.content', 'users.id', 'username', 'comments')
+            ->join('users', 'users.id', '=', 'posts.user_id')
+//            ->join('comments','comments.post_id','=','posts.id')
+            ->whereCode($code)->whereActive(true)->first();
+        return $query;
     }
 }

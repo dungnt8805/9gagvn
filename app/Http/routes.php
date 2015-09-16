@@ -44,10 +44,13 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/', ['as' => 'HomePage', 'uses' => 'HomeController@getIndex']);
 
     Route::group(['prefix' => 'post'], function () {
+        Route::get('{id}', ['as' => 'post.details', 'uses' => 'PostsController@getDetails']);
+
         Route::get('add', ['as' => 'post.add', 'uses' => 'PostsController@getAdd']);
+
     });
 
     Route::controller('medias', 'MediasController', [
-       
+
     ]);
 });

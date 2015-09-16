@@ -9,11 +9,17 @@
 namespace App\Http\Controllers\Frontend;
 
 
+use App\Funny\Repositories\Contracts\PostRepositoryInterface;
+
 class HomeController extends FrontendController
 {
-    public function __construct()
+
+    protected $post;
+
+    public function __construct(PostRepositoryInterface $post)
     {
         parent::__construct();
+        $this->post = $post;
     }
 
     /**
@@ -22,18 +28,10 @@ class HomeController extends FrontendController
      */
     public function getIndex()
     {
-
-        $post = new \stdClass();
-        $post->id = 'aaaa';
-        $post->title = "Happy 30th birthday, Mario";
-        $post->type = 1;
-        $post->thumbnail = "http://img-9gag-fun.9cache.com/photo/a1Y0n5D_700b.jpg";
-        $post->comments = 68;
-        $post->votes = "10,145";
-        $posts = [];
-        for ($i = 0; $i < 10; $i++) {
-            $posts[] = $post;
-        }
-        return $this->view('frontend.home.index',compact('posts'));
+        $posts = $this->post->index(10);
+//        for ($i = 0; $i < 10; $i++) {
+//            $posts[] = $post;
+//        }
+        return $this->view('frontend.home.index', compact('posts'));
     }
 }

@@ -27,3 +27,20 @@ function is_image($mimeType)
 {
     return starts_with($mimeType, 'image/');
 }
+
+/**
+ * return random string with length
+ *
+ * @param $length
+ * @return string
+ */
+function randomString($length = 50)
+{
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
