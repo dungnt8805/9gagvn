@@ -38,7 +38,7 @@ section#individual-post header h2{font-size:24px; line-height:1.3em; margin-bott
 section#individual-post header p.post-meta, section#individual-post header p.post-meta a{color:#999;}
 .badge-toolbar-pre{position:relative;}
 .fixed-wrap-post-bar{height:54px; width:100%;}
-.post-afterbar-a.in-post-top{padding: 10px 0;height:34px; margin:0px; border:0; background-color:#fff; width:728px;}
+.post-afterbar-a.in-post-top{padding: 10px 0;height:34px; margin:0px; border:0; background-color:#fff;}
 .horizontal-vote a ,.vertical-vote a{display:block; width:42px; height:32px;}
 .horizontal-vote a.up, .vertical-vote a.up{background: url("../images/sticky-vote.png") no-repeat}
 .horizontal-vote a.down ,.vertical-vote a.down{background: url("../images/sticky-vote.png") no-repeat 0 -32px;}
@@ -56,4 +56,14 @@ section#individual-post header p.post-meta, section#individual-post header p.pos
 .post-afterbar-a .post-nav a.next{display: block; padding-right: 12px; position: relative;}
 .post-afterbar-a .post-nav a.next span.label{padding:0 8px 0 12px; font-weight:700; height:34px; line-height:34px; display:block; background-color:#ff3c1f;}
 .post-afterbar-a .post-nav a.next span.arrow{position:absolute; top:0; right:0; display:block; width:0; height:0; border-top: 17px dashed transparent; border-bottom: 17px dashed transparent; border-left:13px solid #ff3c1f;}
-
+.clearfix{clear: both}
+article.post-page .post-container a{display: inline;cursor: default}
+article.post-page .post-container a img{border: 0; margin: 0 auto;}
+article.post-page .post-container img{display: block; width: 600px;}
+.post-page .naughty-box{padding: 10px 0 0}
+.post-page .naughty-box .img-container{background-color: #f4f4f4; width: 630px; height: 90px; overflow: hidden}
+.post-afterbar-a{margin: 10px 0; padding-bottom: 0; position: relative}
+.post-afterbar-a.in-post-bot .share{float: none}
+.post-afterbar-a.in-post-bot .share ul{text-align: left; overflow: hidden}
+.post-afterbar-a.in-post-bot .share ul li:first-child{display: block; float: left; margin: 0 10px 0 0;}
+.post-afterbar-a.in-post-bot.full-width .btn-share{width: 49%}

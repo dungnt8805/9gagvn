@@ -11,7 +11,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('resources/components/font-awesome/css/font-awesome.min.css')}}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="{{asset('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('resources/components/ionicons-2.0.1/css/ionicons.min.css')}}">
     <!-- jvectormap -->
     <link rel="stylesheet" href="{{asset('resources/components/jvectormap/jquery-jvectormap-1.2.2.css')}}">
 

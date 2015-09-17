@@ -20,7 +20,14 @@ class Timthumb
             } else if (!preg_match("/http:/", $url)) {
                 $url = Config::get('app.url') . '/' . $url;
             }
-            return Config::get('app.url') . '/thumb.php?src=' . urlencode($url) . '&w=' . $width . '&h=' . $height . '&zc=' . $zc;
+            $thumb = Config::get('app.url') . '/thumb.php?src=' . urlencode($url);
+            if ($width != null)
+                $thumb .= "&w=$width";
+            if ($height != null)
+                $thumb .= "&h=$height";
+            if ($zc != null)
+                $thumb .= "&zc=$zc";
+            return $thumb;
         } else {
             return Config::get('constants.NULL_IMAGE');
         }
