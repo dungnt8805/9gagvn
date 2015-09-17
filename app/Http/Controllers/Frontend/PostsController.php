@@ -34,8 +34,13 @@ class PostsController extends FrontendController
         return $this->view('frontend.posts.add', compact('post'));
     }
 
-    public function getDetails($id)
+    public function getDetails($code)
     {
-        return $this->view("frontend.posts.details");
+        // $post = $this->post->getByCode($code);
+        $post = new \stdClass();
+        $post->title = "It's astounding how many people can't grasp this concept on the highway.";
+        $post->code = 'abnscc9l';
+        $post->thumbnail = 'http://img-9gag-fun.9cache.com/photo/a2q0gzd_700b.jpg';
+        return $this->view("frontend.posts.details",compact('post'));
     }
 }

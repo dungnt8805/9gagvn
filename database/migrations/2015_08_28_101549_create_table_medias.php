@@ -16,6 +16,7 @@ class CreateTableMedias extends Migration
         Schema::create('medias', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->nullable();
+            $table->integer('post_id')->nullable();
             $table->string('file_path');
             $table->string('file_name');
             $table->bigInteger('file_size');
@@ -24,6 +25,7 @@ class CreateTableMedias extends Migration
             $table->string('type');
             $table->softDeletes();
             $table->timestamps();
+            $table->index('post_id');
         });
     }
 

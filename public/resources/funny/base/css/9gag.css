@@ -18,7 +18,7 @@ section#list-view-2 p.post-meta a{color: #999}
 .btn-vote{overflow: hidden}
 .btn-vote li{margin: 0 10px 0 0; float: left; list-style: none}
 .btn-vote a{box-sizing: border-box; border: 1px solid #ddd; border-radius: 3px; width: 44px; height: 34px; display: block; text-indent: -999px}
-.btn-vote a:hover{border: 1px solid #989595}
+.btn-vote a:hover, .horizontal-vote a:hover, .vertical-vote a:hover, .post-afterbar-a .others a.more:hover {border: 1px solid #989595}
 .btn-vote .down{background: url("../images/sticky-vote.png") no-repeat 0 -32px;}
 .btn-vote .up{background: url("../images/sticky-vote.png") no-repeat}
 .btn-vote .comment{background: url("../images/other-buttons.png") no-repeat 0 -32px;}
@@ -31,3 +31,29 @@ section#list-view-2 p.post-meta a{color: #999}
 .post-afterbar-a .btn-share.facebook:hover,.post-afterbar-a .in-post-bot .btn-share.facebook:hover{background-color: #4c70ba}
 .post-afterbar-a .btn-share.twitter{background: #00aced url("../images/sharing-button-a.png") 0 -34px no-repeat;}
 .post-afterbar-a .btn-share.twitter:hover,.post-afterbar-a .in-post-bot .btn-share.twitter:hover{background-color: #21c2ff}
+.post-afterbar-a .others{float:left;}
+.post-afterbar-a .others a.more{display:block; width:42px; height:32px; border:1px solid #eee; overflow:hidden; border-radius:3px; text-indent:-999px;background: #eee url("../images/other-buttons.png") no-repeat;}
+section#individual-post header{margin-bottom:6px; position:relative;}
+section#individual-post header h2{font-size:24px; line-height:1.3em; margin-bottom: 7px; word-wrap:break-word;}
+section#individual-post header p.post-meta, section#individual-post header p.post-meta a{color:#999;}
+.badge-toolbar-pre{position:relative;}
+.fixed-wrap-post-bar{height:54px; width:100%;}
+.post-afterbar-a.in-post-top{padding: 10px 0;height:34px; margin:0px; border:0; background-color:#fff; width:728px;}
+.horizontal-vote a ,.vertical-vote a{display:block; width:42px; height:32px;}
+.horizontal-vote a.up, .vertical-vote a.up{background: url("../images/sticky-vote.png") no-repeat}
+.horizontal-vote a.down ,.vertical-vote a.down{background: url("../images/sticky-vote.png") no-repeat 0 -32px;}
+.horizontal-vote a, .vertical-vote a{display:block;width:42px; height:32px; border:1px solid #ddd; overflow:hidden; text-indent:-99px; border-radius:3px;}
+.horizontal-vote{overflow:hidden; float:left; list-style-type:none; margin-right:10px; position:relative; height:34px; width:113px;}
+.horizontal-vote li{float:left; position: absolute;}
+.horizontal-vote li a.up{text-indent:0; border-radius:3px 0 0 3px; padding-left:36px; width:32px; color:#999; font-weight:700; text-transform:uppercase;line-height:32px;text-decoration:none;}
+.horizontal-vote li a.up span{display:block; height:32px; line-height:32px; background-color:#fff;}
+.horizontal-vote li:last-child{left:69px;}
+.popup-menu{position:absolute; left:50%; margin-left:-45px; z-index:3; min-width:160px;}
+.popup-menu.postpage-share{left:402px; top:34px;}
+.popup-menu ul{list-style-type:none; overflow:hidden; padding:5px 0; background-color:#fff; box-shadow:0 5px 10px rgba(0,0,0,.2); border:1px solid #ccc;}
+.popup-menu a{display:block; color: #777; background-color:#fff; line-height:30px; padding:0 20px; font-size:13px;}
+.post-afterbar-a .post-nav{float:right;}
+.post-afterbar-a .post-nav a.next{display: block; padding-right: 12px; position: relative;}
+.post-afterbar-a .post-nav a.next span.label{padding:0 8px 0 12px; font-weight:700; height:34px; line-height:34px; display:block; background-color:#ff3c1f;}
+.post-afterbar-a .post-nav a.next span.arrow{position:absolute; top:0; right:0; display:block; width:0; height:0; border-top: 17px dashed transparent; border-bottom: 17px dashed transparent; border-left:13px solid #ff3c1f;}
+

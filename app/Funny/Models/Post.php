@@ -15,6 +15,11 @@ class Post extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+    
+    const PHOTO_TYPE = 1;
+    CONST VIDEO_TYPE = 2;
+    CONST COMIC_TYPE = 3;
+    CONST MEME_TYPE = 4;
 
     /**
      * @var string
