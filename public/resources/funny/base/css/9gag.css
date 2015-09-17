@@ -390,3 +390,7 @@ article.post-page .post-container img {
 }
 .post-afterbar-a.in-post-bot .btn-share.twitter{background: #00aced}
 .post-afterbar-a.in-post-bot .btn-share.facebook{background: #3B5998}
+.post-afterbar-meta{color:#999; border-top:1px solid #eee; padding: 5px 0}
+.post-afterbar-meta p{line-height: 20px; font-size: 11px; text-transform: uppercase; text-align: right}
+.post-afterbar-meta a{color:#999;}
+#comment, #comments{margin-top: -30px; height: 30px}

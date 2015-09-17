@@ -118,7 +118,24 @@
                             </ul>
                         </div>
                     </div>
+                    <div class="badge-entry-info post-afterbar-meta">
+                        <p>
+                            <a class="badge-item-report" href="javascript:;">Report</a>
+                            <span class="badge-item-delete-dot hide"> · </span>
+                            <a class="badge-item-delete hide" href="/read/delete?id={{$post->code}}"
+                               onclick="return confirm('Confirm to delete this post??');" rel="nofollow">Delete</a>
+                        </p>
+                    </div>
                 </article>
+            </section>
+            <div id="comment">
+
+            </div>
+            <div id="comments">
+
+            </div>
+            <section class="post-comment">
+
             </section>
         </div>
     </div>
