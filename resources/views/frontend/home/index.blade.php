@@ -6,24 +6,27 @@
             <section id="list-view-2" class="badge-list-view-element variant-right">
                 <div class="badge-entry-collection">
                     @foreach($posts as $post)
-                        <article data-entry-id="" data-entry-vote="" data-entry-comments="" id="" class="">
+                        <article data-entry-id="{{$post->code}}" data-entry-vote="" 
+                        data-entry-comments="" id="" 
+                        class="badge-entry-container badge-entry-entity badge-in-view badge-in-view-focus"
+                        data-entry-url="{{$post->getLink()}}"
+                        >
                             <header>
                                 <h2 class="">{!! $post->title !!}</h2>
                             </header>
                             <div class="">
-                                <a href="" class="">
+                                <a href="{{$post->getLink()}}" target="_blank" class="">
                                     <img src="{{Timthumb::link($post->thumbnail,500,400,1)}}" alt="{{$post->title}}"/>
                                 </a>
                             </div>
                             <div class="post-text-container badge-item-description">
-
                             </div>
                             <p class="post-meta">
-                                <a class="badge-evt point" id="love-count-" href="" target="_blank" data-evt="EntryAction,VotePointLinkUnderTitle,ListPage">
+                                <a class="badge-evt point" id="love-count-" href="{{$post->getLink()}}" target="_blank" data-evt="EntryAction,VotePointLinkUnderTitle,ListPage">
                                     <span class="badge-item-love-count">{{$post->votes}}</span> points
                                 </a>
                                 ·
-                                <a class="comment badge-evt" href="" target="_blank" data-evt="EntryAction,CommentLinkUnderTitle,ListPage">{{$post->comments}} comments</a>
+                                <a class="comment badge-evt" href="{{$post->getLink()}}" target="_blank" data-evt="EntryAction,CommentLinkUnderTitle,ListPage">{{$post->comments}} comments</a>
                             </p>
                             <div class="badge-item-vote-container post-afterbar-a in-list-view">
                                 <div class="vote">

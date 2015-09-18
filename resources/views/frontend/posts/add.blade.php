@@ -29,14 +29,14 @@
                             @else
                             {!! Form::label('thumbnail','Upload Image',['class'=>'control-label col-label']) !!}
                             <div class="col-input">
-                                @include('layouts.commons.images.upload_image')
+                                @include('layouts.commons.images.upload_image',['hide_tooltip'=>1])
                             </div>
                             @endif
                         </div>
                         <div class="form-group">
-                            {!! Form::label('description','Description',['class'=>'control-label col-label']) !!}
+                            {!! Form::label('content','Description',['class'=>'control-label col-label']) !!}
                             <div class="col-input">
-                                {!! Form::textarea('description',old('description'),['class'=>'form-control','rows'=>3]) !!}
+                                {!! Form::textarea('content',old('content'),['class'=>'form-control','rows'=>3]) !!}
                             </div>
                         </div>
                         <div class="form-group">

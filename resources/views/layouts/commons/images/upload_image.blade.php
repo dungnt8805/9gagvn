@@ -1,5 +1,6 @@
 <div id="container-upload" class="box-add-img-select marginT10 paddingTB10 positionR">
     <div id="photoPreviews" class="photoPreviews" style="max-height: 150px; overflow-y: scroll">
+        @if(!isset($hide_tooltip) || empty($hide_tooltip))
         <div class="tooltip-1 positionA"
              style="top:-20px; left:45px; <?= (isset($thumbnailEntry) && $thumbnailEntry != null ? "" : "display: none;") ?>">
             <div class="row positionR">
@@ -8,6 +9,7 @@
                      style="left:38px; top:17px; background-color:#FF0"></div>
             </div>
         </div>
+        @endif
     </div>
     <center>
         <span class="colorG font-size16 fontB">
@@ -32,8 +34,9 @@
             <span class="positionA number number_img_xINDEX" style="display: none;"></span>
 
             <div class="tool positionA">
+                @if(!isset($hide_tooltip) || empty($hide_tooltip))
                 <a href="javascript:void(0);" class="chose-pic insert_img_xINDEX"></a>
-
+                @endif
                 <a href="javascript:void(0);" class="trash del_img_xINDEX"></a>
             </div>
         </div>

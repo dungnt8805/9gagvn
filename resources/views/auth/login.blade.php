@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
-                {!! HTML::link('/auth/register','Register',['class'=>'btn btn-link pull-right']) !!}
+                {!! HTML::link('/register','Register',['class'=>'btn btn-link pull-right']) !!}
                 {!! Form::close() !!}
             </div>
         </div>

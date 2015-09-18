@@ -6,6 +6,7 @@
     <title>AdminLTE 2 | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="csrf_token" content="{{ csrf_token() }}">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="{{asset('resources/components/bootstrap/css/bootstrap.min.css')}}">
     <!-- Font Awesome -->
@@ -76,9 +77,16 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    // var main_url
+    var main_url = '{!! Config::get('app.url') !!}';
+</script>
 <!-- jQuery 2.1.4 -->
 <script src="{{asset('resources/components/jquery-2.1.4.min.js')}}"></script>
 <!-- Bootstrap 3.3.5 -->
 <script src="{{asset('resources/components/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('resources/funny/base/js/post_item.js')}}"></script>
+@section('extend_script')
+@show
 </body>
 </html>

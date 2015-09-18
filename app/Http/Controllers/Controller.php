@@ -8,14 +8,21 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use View;
+use Input;
+use Auth;
 
 abstract class Controller extends BaseController
 {
     use DispatchesJobs, ValidatesRequests;
 
+    protected $user;
+
     public function __construct()
     {
         $this->beforeFilter('csrf', ['on' => 'post']);
+        
+        if(Auth::check())
+            $this->user = Auth::user();
     }
 
     /**
@@ -53,9 +60,19 @@ abstract class Controller extends BaseController
     {
         return View::make($path, $data);
     }
+    
+    /**
+     *  Return input data 
+     * 
+     * @return array
+     * 
+     */
+    protected function input(){
+        return Input::all();   
+    }
 
     /**
-     *
+     * Return data with json
      *
      * @param $data
      * @return mixed

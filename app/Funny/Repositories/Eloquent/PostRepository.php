@@ -140,6 +140,9 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
             $categories = $data['categories'];
             unset($data['categories']);
         }
+        if(array_key_exists('photo',$data)){
+            unset($data['photo']);
+        }
         if (array_key_exists('tags', $data)) {
             $tags = $data['tags'];
             unset($data['tags']);

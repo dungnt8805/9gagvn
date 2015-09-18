@@ -9,5 +9,5 @@ namespace App\Funny\Services\Forms;
 
 class PostForm extends AbstractForm
 {
-    protected $rules = ['title' => 'required|min:5', 'content' => 'required'];
+    protected $rules = ['title' => 'required|min:5'];
 }

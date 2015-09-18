@@ -76,4 +76,14 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+    /**
+     * 
+     * 
+     * 
+     * 
+     * @return string
+     */
+    public function getLink(){
+        return route('post.details',$this->code);
+    }
 }

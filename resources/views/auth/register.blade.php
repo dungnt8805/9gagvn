@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Signup</button>
-                {!! HTML::link('/auth/login','Login',['class'=>'btn btn-link pull-right']) !!}
+                {!! HTML::link('/login','Login',['class'=>'btn btn-link pull-right']) !!}
             {!! Form::close() !!}
         </div>
     </div>

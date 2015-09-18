@@ -10,18 +10,16 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-//
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::pattern('code', '[a-zA-Z0-9]+');
 
-// Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
-
+Route::group(['namespace'=>'Auth'],function(){
+    Route::get('login', 'AuthController@getLogin');
+    Route::post('login', 'AuthController@postLogin');
+    Route::get('logout', 'AuthController@getLogout');
+    
+    Route::get('register', 'AuthController@getRegister');
+    Route::post('register', 'AuthController@postRegister');
+});
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::controller('categories', 'CategoriesController', [
@@ -46,11 +44,14 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::group(['prefix' => 'post'], function () {
         Route::get('{code}', ['as' => 'post.details', 'uses' => 'PostsController@getDetails']);
 
-        Route::get('add', ['as' => 'post.add', 'uses' => 'PostsController@getAdd']);
-
+        Route::get('add-a-fun', ['as' => 'post.add', 'uses' => 'PostsController@getAdd']);
+        Route::post('add-a-fun','PostsController@postAdd');
     });
 
     Route::controller('medias', 'MediasController', [
 
     ]);
+    
+    
+    
 });
