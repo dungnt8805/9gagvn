@@ -94,7 +94,10 @@ section#list-view-2 p.post-meta a {
     text-indent: -999px
 }
 
-.btn-vote a:hover, .horizontal-vote a:hover, .vertical-vote a:hover, .post-afterbar-a .others a.more:hover {
+.btn-vote a:hover,
+.horizontal-vote a:hover,
+.vertical-vote a:hover,
+.post-afterbar-a .others a.more:hover {
     border: 1px solid #989595
 }
 
@@ -144,7 +147,8 @@ section#list-view-2 p.post-meta a {
     background: #3b5998 url("../images/sharing-button-a.png") 0 0 no-repeat;
 }
 
-.post-afterbar-a .btn-share.facebook:hover, .post-afterbar-a .in-post-bot .btn-share.facebook:hover {
+.post-afterbar-a .btn-share.facebook:hover,
+.post-afterbar-a .in-post-bot .btn-share.facebook:hover {
     background-color: #4c70ba
 }
 
@@ -152,7 +156,8 @@ section#list-view-2 p.post-meta a {
     background: #00aced url("../images/sharing-button-a.png") 0 -34px no-repeat;
 }
 
-.post-afterbar-a .btn-share.twitter:hover, .post-afterbar-a .in-post-bot .btn-share.twitter:hover {
+.post-afterbar-a .btn-share.twitter:hover,
+.post-afterbar-a .in-post-bot .btn-share.twitter:hover {
     background-color: #21c2ff
 }
 
@@ -183,7 +188,8 @@ section#individual-post header h2 {
     word-wrap: break-word;
 }
 
-section#individual-post header p.post-meta, section#individual-post header p.post-meta a {
+section#individual-post header p.post-meta,
+section#individual-post header p.post-meta a {
     color: #999;
 }
 
@@ -204,21 +210,25 @@ section#individual-post header p.post-meta, section#individual-post header p.pos
     background-color: #fff;
 }
 
-.horizontal-vote a, .vertical-vote a {
+.horizontal-vote a,
+.vertical-vote a {
     display: block;
     width: 42px;
     height: 32px;
 }
 
-.horizontal-vote a.up, .vertical-vote a.up {
+.horizontal-vote a.up,
+.vertical-vote a.up {
     background: url("../images/sticky-vote.png") no-repeat
 }
 
-.horizontal-vote a.down, .vertical-vote a.down {
+.horizontal-vote a.down,
+.vertical-vote a.down {
     background: url("../images/sticky-vote.png") no-repeat 0 -32px;
 }
 
-.horizontal-vote a, .vertical-vote a {
+.horizontal-vote a,
+.vertical-vote a {
     display: block;
     width: 42px;
     height: 32px;
@@ -378,7 +388,11 @@ article.post-page .post-container img {
     float: left;
     margin: 0 10px 0 0;
 }
-.post-afterbar-a.in-post-bot.full-width .share li{margin: 0;}
+
+.post-afterbar-a.in-post-bot.full-width .share li {
+    margin: 0;
+}
+
 @media screen and (min-width: 728px) {
     .post-afterbar-a.in-post-bot.full-width .btn-share {
         width: 310px;
@@ -388,9 +402,34 @@ article.post-page .post-container img {
         padding: 0;
     }
 }
-.post-afterbar-a.in-post-bot .btn-share.twitter{background: #00aced}
-.post-afterbar-a.in-post-bot .btn-share.facebook{background: #3B5998}
-.post-afterbar-meta{color:#999; border-top:1px solid #eee; padding: 5px 0}
-.post-afterbar-meta p{line-height: 20px; font-size: 11px; text-transform: uppercase; text-align: right}
-.post-afterbar-meta a{color:#999;}
-#comment, #comments{margin-top: -30px; height: 30px}
+
+.post-afterbar-a.in-post-bot .btn-share.twitter {
+    background: #00aced
+}
+
+.post-afterbar-a.in-post-bot .btn-share.facebook {
+    background: #3B5998
+}
+
+.post-afterbar-meta {
+    color: #999;
+    border-top: 1px solid #eee;
+    padding: 5px 0
+}
+
+.post-afterbar-meta p {
+    line-height: 20px;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: right
+}
+
+.post-afterbar-meta a {
+    color: #999;
+}
+
+#comment,
+#comments {
+    margin-top: -30px;
+    height: 30px
+}

@@ -6,7 +6,7 @@
             <h1 class="panel-title big">Create new user</h1>
         </div>
         <div class="panel-body">
-            {!! Form::open(['url'=>'/auth/register','class'=>'form-vertical']) !!}
+            {!! Form::open(['url'=>'/register','class'=>'form-vertical']) !!}
                 <div class="form-group">
                     {!! Form::label('name','Name') !!}
                     <div class="controls">

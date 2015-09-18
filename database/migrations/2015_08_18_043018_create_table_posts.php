@@ -30,6 +30,7 @@ class CreateTablePosts extends Migration
             $table->integer('dislikes')->default(0)->unsigned();
             $table->integer('comments')->default(0)->unsigned();
             $table->boolean('not_safe_for_work')->default(false);
+            $table->string('source')->nullable();
             $table->boolean('active');
             $table->text('start');
             $table->text('expire');

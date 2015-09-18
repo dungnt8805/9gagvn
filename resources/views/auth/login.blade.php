@@ -7,7 +7,7 @@
                 <h1 class="panel-title big">Login</h1>
             </div>
             <div class="panel-body">
-                {!! Form::open(['url'=>'/auth/login','class'=>'form-vertical']) !!}
+                {!! Form::open(['url'=>'/login','class'=>'form-vertical']) !!}
                 <div class="form-group">
                     {!! Form::label('email','Email') !!}
                     <div class="controls">

@@ -123,3 +123,4 @@ label {
 #ajax-login a.small{color:#333; margin-top: 4px;}
 a.facebookConnectionButton,a.facebookConnectionButton:hover,a.facebookConnectionButton:focus {text-decoration:none;}
 .facebookLoginButton{background:#4164a3 url("") no-repeat left center; border-radius:4px; text-align:center; color:#fff; cursor:pointer; display:block; font-size: 14px; line-height:32px; height:32px; text-shadow: rgba(0,0,0,0.5) 0 -1px;-webkit-text-stroke: 1px transparent;}
+.col-checkbox{width: 20px; height:20px; margin-top: 6px !important;}
