@@ -19,6 +19,8 @@ Route::group(['namespace'=>'Auth'],function(){
     
     Route::get('register', 'AuthController@getRegister');
     Route::post('register', 'AuthController@postRegister');
+    
+    Route::get('/auth/facebook',['as'=>'auth.facebook','uses'=>'AuthController@getFacebook']);
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {

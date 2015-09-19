@@ -26,8 +26,8 @@ return [
     |
     */
 
-    'url' => 'http://9gag.dev',
-
+    // 'url' => 'http://9gag.dev',
+    'url' => env('APP_URL',''),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -136,6 +136,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -201,6 +202,7 @@ return [
         'Flysystem' => GrahamCampbell\Flysystem\Facades\Flysystem::class,
         'ImageManager' => \App\Funny\Facades\ImageFacade::class,
         'Timthumb' => \App\Funny\Facades\TimthumbFacade::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 
