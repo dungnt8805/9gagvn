@@ -35,12 +35,10 @@ App.controller("NewsfeedCtrl", function ($scope, PostServices, $http) {
             .load()
             .success(function (res) {
                 if (!res.data || res.data.length < 1) {
-                    $scope.busy = false;
-
                     return;
                 }
                 $scope.Posts = res.data;
-
+                $scope.busy = false;
             })
     }
 });
