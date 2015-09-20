@@ -1,22 +1,46 @@
 /**
  * Created by dungnt13 on 9/10/2015.
  */
+var App,
+    Service;
 
-App = {
-    init: function () {
-        this.config = {
-            duration: 0
+
+/**
+ * Configuration Application
+ * @type {module}
+ */
+App = angular.module('App', [
+    'infinite-scroll',
+]);
+
+App.factory("PostServices", function ($http) {
+    return {
+        getDomain: function () {
+            return window.location.origin;
+        },
+        load: function () {
+            return $http.post(this.getDomain());
         }
-    },
+    }
+});
 
-    /**
-     * Insert img to content editor
-     * @param img url
-     */
-    insertImageEditor: function (imgUrl) {
-        var htmlContent = '<p style="text-align: center;"><img src="' + imgUrl + '" style="padding: 10px 0; text-align: center" /></p><p style="text-align: center;"><em style="font-style: italic">Nhập mô tả hình ảnh của bạn</em></p>';
-        CKEDITOR.instances.textareabox.insertHtml(htmlContent);
-    },
+App.controller("NewsfeedCtrl", function ($scope, PostServices, $http) {
+    $scope.busy = false;
 
+    $scope.loadPostList = function (type) {
+        $scope.type = type;
+        if ($scope.busy) return;
+        $scope.busy = true;
+        PostServices
+            .load()
+            .success(function (res) {
+                if (!res.data || res.data.length < 1) {
+                    $scope.busy = false;
 
-}
+                    return;
+                }
+                $scope.Posts = res.data;
+
+            })
+    }
+});

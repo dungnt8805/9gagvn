@@ -140,7 +140,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
             $categories = $data['categories'];
             unset($data['categories']);
         }
-        if(array_key_exists('photo',$data)){
+        if (array_key_exists('photo', $data)) {
             unset($data['photo']);
         }
         if (array_key_exists('tags', $data)) {
@@ -178,7 +178,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     public function index($n, $q = null, $category = null, $user_id = null, $orderBy = 'created_at', $direction = 'desc')
     {
         $query = $this->model->select('posts.id', 'posts.title', 'posts.created_at', 'posts.active', 'posts.slug'
-            , 'posts.thumbnail', 'posts.summary', 'posts.views', 'posts.code'
+            , 'posts.thumbnail', 'posts.summary', 'posts.views', 'posts.code','posts.youtube_id'
 //            , 'users.id', 'username'
         )
 //            ->join('users', 'users.id', '=', 'posts.user_id')
@@ -239,10 +239,16 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     }
 
 
+    /**
+     * Get one post by code
+     *
+     * @param $code
+     * @return \App\Funny\Models\Post
+     */
     public function getByCode($code)
     {
         $query = $this->model->select('posts.id', 'posts.code', 'posts.title', 'posts.thumbnail', 'posts.type', 'posts.embed'
-            , 'posts.summary', 'posts.content', 'users.id', 'username', 'comments')
+            , 'posts.summary', 'posts.content', 'users.id', 'username', 'comments', 'youtube_id')
             ->join('users', 'users.id', '=', 'posts.user_id')
 //            ->join('comments','comments.post_id','=','posts.id')
             ->whereCode($code)->whereActive(true)->first();

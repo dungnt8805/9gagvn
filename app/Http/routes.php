@@ -12,15 +12,15 @@
 */
 Route::pattern('code', '[a-zA-Z0-9]+');
 
-Route::group(['namespace'=>'Auth'],function(){
+Route::group(['namespace' => 'Auth'], function () {
     Route::get('login', 'AuthController@getLogin');
     Route::post('login', 'AuthController@postLogin');
-    Route::get('logout', 'AuthController@getLogout');
-    
+    Route::get('logout', ['as' => 'auth.logout', 'uses' => 'AuthController@getLogout']);
+
     Route::get('register', 'AuthController@getRegister');
     Route::post('register', 'AuthController@postRegister');
-    
-    Route::get('/auth/facebook',['as'=>'auth.facebook','uses'=>'AuthController@getFacebook']);
+
+    Route::get('/auth/facebook', ['as' => 'auth.facebook', 'uses' => 'AuthController@getFacebook']);
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
@@ -42,18 +42,18 @@ Route::group(['namespace' => 'Frontend'], function () {
 
     # homepage
     Route::get('/', ['as' => 'HomePage', 'uses' => 'HomeController@getIndex']);
+    Route::post('/', ['as' => 'HomePage', 'uses' => 'HomeController@getIndex']);
 
     Route::group(['prefix' => 'post'], function () {
         Route::get('{code}', ['as' => 'post.details', 'uses' => 'PostsController@getDetails']);
 
         Route::get('add-a-fun', ['as' => 'post.add', 'uses' => 'PostsController@getAdd']);
-        Route::post('add-a-fun','PostsController@postAdd');
+        Route::post('add-a-fun', 'PostsController@postAdd');
     });
 
     Route::controller('medias', 'MediasController', [
 
     ]);
-    
-    
-    
+
+
 });

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml"
+      ng-app="App" class="ng-scope">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +25,14 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
     <![endif]-->
+    <!-- jQuery 2.1.4 -->
+    <script src="{{asset('resources/components/jquery-2.1.4.min.js')}}"></script>
+    <!-- Bootstrap 3.3.5 -->
+    <script src="{{asset('resources/components/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('resources/components/angular-js/angular.js')}}"></script>
+    <script src="{{asset('resources/components/angular-js/ng-infinite-scroll.min.js')}}"></script>
 </head>
 <body>
 <header id="header-hav" class="navbar navbar-default navbar-fixed-top hl-top-menu-wrap" role="navigation">
@@ -81,11 +89,11 @@
     // var main_url
     var main_url = '{!! Config::get('app.url') !!}';
 </script>
-<!-- jQuery 2.1.4 -->
-<script src="{{asset('resources/components/jquery-2.1.4.min.js')}}"></script>
-<!-- Bootstrap 3.3.5 -->
-<script src="{{asset('resources/components/bootstrap/js/bootstrap.min.js')}}"></script>
+
 <script src="{{asset('resources/funny/base/js/post_item.js')}}"></script>
+<script src="{{asset('resources/components/jwplayer-7.1.0/jwplayer.js')}}"></script>
+<script>jwplayer.key = "5Xr9z0ikONhKqaa32VQueQ+ZDldMuFSpn6DIXQ=="</script>
+<script src="{{asset('resources/funny/base/js/app.js')}}"></script>
 @section('extend_script')
 @show
 </body>

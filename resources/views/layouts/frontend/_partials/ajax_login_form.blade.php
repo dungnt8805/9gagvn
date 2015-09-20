@@ -4,7 +4,7 @@
                             Login / Register
                         </i>
                     </span></a>
-    <a class="dropdown-toggle profile-link guest hidden-xs" href="#" data-toggle="dropdown">
+    <a class="dropdown-toggle profile-link guest hidden-xs guest" href="#" data-toggle="dropdown">
         <i class="fa fa-user"></i> Login
         <b class="caret"></b>
     </a>
@@ -13,7 +13,7 @@
         <div id="ajax-login">
             <div id="ajax-login-header">Login to 9gag</div>
             <div id="fb_login_form">
-                <a href="#" class="facebookConnectButton">
+                <a href="/auth/facebook" class="facebookConnectButton">
                     <span class="facebookLoginButton">
                                         <span id="facebookLoginButtonLogo">
                                             Login with 

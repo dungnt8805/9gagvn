@@ -15,7 +15,7 @@ class Post extends Model
 {
     use SoftDeletes;
     protected $dates = ['deleted_at'];
-    
+
     const PHOTO_TYPE = 1;
     CONST VIDEO_TYPE = 2;
     CONST COMIC_TYPE = 3;
@@ -76,14 +76,27 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
     /**
-     * 
-     * 
-     * 
-     * 
+     *
+     *
+     *
+     *
      * @return string
      */
-    public function getLink(){
-        return route('post.details',$this->code);
+    public function getLink()
+    {
+        return route('post.details', $this->code);
+    }
+
+    /**
+     * @return mixed|string
+     */
+    public function getThumbnail()
+    {
+        $thumbnail = $this->thumbnail;
+        if (is_null($this->thumbnail) && !is_null($this->youtube_id))
+            $thumbnail = "https://i.ytimg.com/vi/$this->youtube_id/hqdefault.jpg";
+        return $thumbnail;
     }
 }

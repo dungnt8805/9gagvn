@@ -27,7 +27,7 @@ return [
     */
 
     // 'url' => 'http://9gag.dev',
-    'url' => env('APP_URL',''),
+    'url' => env('APP_URL', ''),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -148,6 +148,7 @@ return [
         App\Funny\Providers\RepositoryServiceProvider::class,
         GrahamCampbell\Flysystem\FlysystemServiceProvider::class,
 //        \App\Funny\Facades\ImageFacade::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
 
     ],

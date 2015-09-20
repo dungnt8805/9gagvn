@@ -35,9 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
     'facebook'=>[
-        'client_id' => '949516241786564',
-        'client_secret' => '6d31cd0f5c6d7349e122032a82addfb1',
-        'redirect' => 'http://your-callback-url',
+        'client_id' => '950088648395990',
+        'client_secret' => '34176eef8b7375dfbc1a329cd7057279',
+        'redirect' => 'http://9gag.dev/auth/facebook',
     ],
     'twitter'=>[
         'client_id' => 'your-github-app-id',

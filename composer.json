@@ -14,7 +14,8 @@
     "graham-campbell/flysystem": "~3.1",
     "dflydev/apache-mime-types":"~1.0",
     "league/flysystem-aws-s3-v3": "^1.0",
-    "laravel/socialite":"dev-master"
+    "laravel/socialite":"dev-master",
+    "barryvdh/laravel-ide-helper": "^2.1"
   },
   "require-dev": {
     "fzaninotto/faker": "~1.4",

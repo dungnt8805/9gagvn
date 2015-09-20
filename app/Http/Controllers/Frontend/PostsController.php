@@ -12,6 +12,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Funny\Repositories\CategoryRepositoryInterface;
 use App\Funny\Repositories\Contracts\PostRepositoryInterface;
 use Request;
+
 class PostsController extends FrontendController
 {
     /**
@@ -25,18 +26,19 @@ class PostsController extends FrontendController
     {
         parent::__construct();
         $this->post = $post;
-        $this->middleware('auth',['except'=>['getDetails']]);
+        $this->middleware('auth', ['except' => ['getDetails']]);
     }
 
 
     public function getAdd()
     {
-        $type = Request::input('type','');
+        $type = Request::input('type', '');
         $post = $this->post->getNew();
-        return $this->view('frontend.posts.add', compact('post','type'));
+        return $this->view('frontend.posts.add', compact('post', 'type'));
     }
-    
-    public function postAdd(){
+
+    public function postAdd()
+    {
         $form = $this->post->getForm();
         if (!$form->isValid()) {
             return $this->redirectBack()->withInput()->withErrors($form->getErrors());
@@ -49,10 +51,7 @@ class PostsController extends FrontendController
     public function getDetails($code)
     {
         // $post = $this->post->getByCode($code);
-        $post = new \stdClass();
-        $post->title = "It's astounding how many people can't grasp this concept on the highway.";
-        $post->code = 'abnscc9l';
-        $post->thumbnail = 'http://img-9gag-fun.9cache.com/photo/a2q0gzd_700b.jpg';
-        return $this->view("frontend.posts.details",compact('post'));
+        $post = $this->post->getByCode($code);
+        return $this->view("frontend.posts.details", compact('post'));
     }
 }

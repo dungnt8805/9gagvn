@@ -1,16 +1,19 @@
 <li class="dropdown">
-    <a href="/posts/new" class="visible-xs">
-        <i class="fa fa-sticky-note"></i> Post a fun
-    </a>
-    <a class="dropdown-toggle profile-link guest hidden-xs" href="#" data-toggle="dropdown">
-        <i class="fa fa-sticky-note"></i> Post a fun
+    <a class="dropdown-toggle profile-link" href="#" data-toggle="dropdown">
+        {!! HTML::image(Timthumb::link(Auth::user()->avatar,100,100,1),"",['class'=>'profile-icon']) !!}
         <b class="caret"></b>
     </a>
-    <div class="dropdown-menu">
-        <ul>
-            <li>
-                <a class="" href="#"></a>
-            </li>
-        </ul>
-    </div>
+    <ul class="dropdown-menu">
+        <li role="presentation" class="dropdown-header">{{trans('frontend.user.profile')}}</li>
+        <li>
+            {!! HTML::link("",trans('frontend.user.view_profile')) !!}
+        </li>
+        <li>
+            {!! HTML::link(route('post.add'),trans('frontend.post.add')) !!}
+        </li>
+        <li role="presentation" class="divider"></li>
+        <li>
+            {!! HTML::link(route('auth.logout',trans(''))) !!}
+        </li>
+    </ul>
 </li>

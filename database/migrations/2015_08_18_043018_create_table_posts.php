@@ -25,6 +25,7 @@ class CreateTablePosts extends Migration
             $table->text('embed')->nullable();
             $table->text('content');
             $table->string('code', 10)->unique();
+            $table->string('youtube_id', 15)->nullable();
             $table->integer('views')->unsigned();
             $table->integer('likes')->unsigned();
             $table->integer('dislikes')->default(0)->unsigned();

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -37,7 +38,7 @@ class AuthController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -52,7 +53,7 @@ class AuthController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return User
      */
     protected function create(array $data)
@@ -63,9 +64,31 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
-    
-    
-    public function getFacebook(){
-        return Socialite::driver('facebook')->redirect();
+
+    /**
+     *
+     *
+     * @return mixed
+     */
+    public function getFacebook()
+    {
+        try {
+            $oauth = Socialite::driver('facebook')->user();
+//
+        } catch (\Exception $ex) {
+            return Socialite::driver('facebook')->redirect();
+        }
+        if (is_null($user = User::where('fb_id', '=', $oauth->id)->first()))
+            if (!is_null($oauth->email) && is_null($user = User::whereEmail($oauth->email)->first()))
+                $user = new User();
+        $user->fb_id = $oauth->id;
+        $user->activated = true;
+        $user->email = !is_null($oauth->email) ? $oauth->email : "$oauth->id@facebook.com";
+        $user->name = $oauth->name;
+        $user->password = bcrypt('12345678');
+        $user->avatar = $oauth->avatar;
+        $user->save();
+        Auth::login($user);
+        return $this->redirectRoute("HomePage");
     }
 }

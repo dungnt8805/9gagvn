@@ -38,14 +38,14 @@
                                            href="javascript:void(0);"
                                            data-track="social,fb.s,,,d,a2q0gzd,p"
                                            data-evt="Facebook-Share,PostClicked,http://9gag.com/gag/a2q0gzd"
-                                           data-share="http://9gag.com/gag/a2q0gzd?ref=fb.s" rel="nofollow">Facebook</a>
+                                           data-share="{{$post->getLink()}}?ref=fb.s" rel="nofollow">Facebook</a>
                                     </li>
                                     <li><a class="badge-twitter-share badge-evt badge-track btn-share twitter"
                                            href="javascript:void(0);"
                                            data-track="social,t.s,,,d,a2q0gzd,p"
                                            data-evt="Twitter-Share,PostClicked,http://9gag.com/gag/a2q0gzd"
-                                           data-title="It%27s%20astounding%20how%20many%20people%20can%27t%20grasp%20this%20concept%20on%20the%20highway."
-                                           data-share="http://9gag.com/gag/a2q0gzd?ref=t" rel="nofollow">Twitter</a>
+                                           data-title="{{$post->title}}"
+                                           data-share="{{$post->getLink()}}?ref=t" rel="nofollow">Twitter</a>
                                     </li>
                                 </ul>
                             </div>
@@ -57,7 +57,7 @@
                                     <li><a href="javascript:void(0);" class="badge-gplus-share badge-evt badge-track"
                                            data-track="social,gp.s,,,d,a2q0gzd,p"
                                            data-evt="GPlus-Share,PostClicked,http://9gag.com/gag/a2q0gzd"
-                                           data-share="http://9gag.com/gag/a2q0gzd?ref=gp" rel="nofollow">Google+</a>
+                                           data-share="{{$post->getLink()}}?ref=gp" rel="nofollow">Google+</a>
                                     </li>
                                     <li><a href="javascript:void(0);"
                                            class="badge-pinterest-share badge-evt badge-track"
@@ -65,7 +65,7 @@
                                            data-evt="Pinterest-Share,PostClicked,http://9gag.com/gag/a2q0gzd"
                                            data-title="It%27s%20astounding%20how%20many%20people%20can%27t%20grasp%20this%20concept%20on%20the%20highway."
                                            data-img="http://img-9gag-fun.9cache.com/photo/a2q0gzd_700b.jpg"
-                                           data-share="http://9gag.com/gag/a2q0gzd?ref=pn" rel="nofollow">Pinterest</a>
+                                           data-share="{{$post->getLink()}}?ref=pn" rel="nofollow">Pinterest</a>
                                     </li>
                                     <li>
                                         <a href="mailto:?subject=Check%20out%20%22It%27s%20astounding%20how%20many%20people%20can%27t%20grasp%20this%20concept%20on%20the%20highway.%22&body=This%20is%20funny%2C%20you%20must%20check%20it%20out%21%20%3AD%0AIt%27s%20astounding%20how%20many%20people%20can%27t%20grasp%20this%20concept%20on%20the%20highway.%0Ahttp%3A%2F%2F9gag.com%2Fgag%2Fa2q0gzd%3Fref%3D9g.m"
@@ -86,15 +86,49 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="badge-post-container badge-entry-content post-container">
-                        <a href="javascript:;" style="">
-                            <img src="{{Timthumb::link($post->thumbnail,600,null,1)}}">
-                        </a>
+                        @if($post->type == \App\Funny\Models\Post::PHOTO_TYPE)
+                            <a href="javascript:;" style="">
+                                <img src="{{Timthumb::link($post->thumbnail,600,null,1)}}">
+                            </a>
+                        @elseif($post->type == \App\Funny\Models\Post::VIDEO_TYPE)
+                            @if(!is_null($post->youtube_id))
+                                <div id="embed_video">
+
+                                </div>
+                                <script type="text/javascript">
+                                    jQuery(document).ready(function () {
+                                        jwplayer('embed_video').setup({
+                                            menu: true,
+                                            allowscriptaccess: "always",
+                                            wmode: "opaque",
+                                            image: "https://i.ytimg.com/vi/{!! $post->youtube_id !!}/hqdefault.jpg",
+                                            file: "https://www.youtube.com/watch?v={!! $post->youtube_id !!}",
+                                            width: "100%",
+                                            aspectratio: "16:9",
+                                            autostart: false,
+                                            primary: "flash",
+//                                            advertising: {
+//                                                client: "vas",
+//                                                skipoffset: 5,
+//                                                skiptext: "Bỏ qua",
+//                                                skipmessage: "Bỏ qua sau xxs",
+//                                                admessage: "Nhấn Bỏ qua (góc phải bên dưới VIDEO) để xem VIDEO ngay. Quảng cáo hết sau XX giây",
+//                                                tag: "http://delivery.adnetwork.vn/247/xmlvideoad/zid_1435823876/wid_1435823768/type_inline/cb_[timestamp]"
+//                                            }
+                                        });
+                                    })
+
+                                </script>
+                            @else
+                            @endif
+                        @endif
                         <div class="post-container badge-item-description"></div>
                     </div>
                     <div class="naughty-box">
                         <div class="width-limit">
                             <div class="image-container">
-                                <div class="badge-gag-ads-container img-container" data-gag-ads="nsfw-post-leaderboard-630x900-atf">
+                                <div class="badge-gag-ads-container img-container"
+                                     data-gag-ads="nsfw-post-leaderboard-630x900-atf">
 
                                 </div>
                             </div>
@@ -107,13 +141,16 @@
                                     <a class="badge-facebook-share badge-facebook-bot-share badge-evt badge-track btn-share facebook"
                                        href="javascript:;" data-track="social,fb.s,,,d,{{$post->code}},p"
                                        data-evt="Facebook-Share-Bot,PostClicked,http://9gag.com/gag/aRVzQVy"
-                                       data-share="http://9gag.com/gag/aRVzQVy?ref=fb.s" rel="nofollow">Share on Facebook</a>
+                                       data-share="http://9gag.com/gag/aRVzQVy?ref=fb.s" rel="nofollow">Share on
+                                        Facebook</a>
                                 </li>
                                 <li>
                                     <a class="badge-twitter-share badge-twitter-bot-share badge-evt badge-track btn-share twitter"
                                        href="javascript:void(0);" data-track="social,t.s,,,d,{{$post->code}},p"
-                                       data-evt="Twitter-Share-Bot,PostClicked,http://9gag.com/gag/aRVzQVy" data-title="RWD%20ftw."
-                                       data-share="http://9gag.com/gag/aRVzQVy?ref=t" rel="nofollow">Share on Twitter</a>
+                                       data-evt="Twitter-Share-Bot,PostClicked,http://9gag.com/gag/aRVzQVy"
+                                       data-title="RWD%20ftw."
+                                       data-share="http://9gag.com/gag/aRVzQVy?ref=t" rel="nofollow">Share on
+                                        Twitter</a>
                                 </li>
                             </ul>
                         </div>

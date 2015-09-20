@@ -87,4 +87,12 @@ interface PostRepositoryInterface
      */
     public function _getNew();
 
+    /**
+     * Get one post by code
+     *
+     * @param $code
+     * @return \App\Funny\Models\Post
+     */
+    public function getByCode($code);
+
 }
