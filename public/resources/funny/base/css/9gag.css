@@ -433,3 +433,43 @@ article.post-page .post-container img {
     margin-top: -30px;
     height: 30px
 }
+
+.video-frame {
+    border: 1px solid #eee;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    display: block
+}
+
+.video-frame span.play {
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    text-indent: -99px;
+    position: absolute;
+    background: url("../images/icon-video-play-48.png") no-repeat;
+    top: 50%;
+    left: 50%;
+    margin-top: -24px;
+    margin-left: -24px;
+    opacity: 0.9;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.responsivewrapper {
+    background-color: #222
+}
+
+.responsivewrapper {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    font-size: 0;
+    background-size: cover;
+    background-position: center;
+}

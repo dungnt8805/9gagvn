@@ -18,27 +18,32 @@ App.factory("PostServices", function ($http) {
         getDomain: function () {
             return window.location.origin;
         },
-        load: function () {
-            return $http.post(this.getDomain());
+        load: function (page) {
+            return $http.post(this.getDomain(), {page: page});
         }
     }
 });
 
 App.controller("NewsfeedCtrl", function ($scope, PostServices, $http) {
+    $scope.Posts = [];
     $scope.busy = false;
-
+    $scope.page = 1;
     $scope.loadPostList = function (type) {
         $scope.type = type;
         if ($scope.busy) return;
         $scope.busy = true;
         PostServices
-            .load()
+            .load($scope.page)
             .success(function (res) {
                 if (!res.data || res.data.length < 1) {
                     return;
+                } else {
+                    for (var i in res.data) {
+                        $scope.Posts.push(res.data[i]);
+                    }
                 }
-                $scope.Posts = res.data;
                 $scope.busy = false;
+                $scope.page++;
             })
     }
 });

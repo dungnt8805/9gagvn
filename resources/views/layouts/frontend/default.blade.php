@@ -36,7 +36,7 @@
 </head>
 <body>
 <header id="header-hav" class="navbar navbar-default navbar-fixed-top hl-top-menu-wrap" role="navigation">
-    <div class="container960">
+    <div class="container1080">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
                 <i class="fa fa-bars"></i>
@@ -64,8 +64,8 @@
         </div>
     </div>
 </header>
-<main id="content" role="main" tabindex="-1" style="margin-top: 55px;">
-    <div class="container960">
+<main id="content" role="main" tabindex="-1" style="">
+    <div class="container1080">
         @yield('content')
     </div>
 </main>

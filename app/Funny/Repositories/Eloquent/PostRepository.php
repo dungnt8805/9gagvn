@@ -178,7 +178,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     public function index($n, $q = null, $category = null, $user_id = null, $orderBy = 'created_at', $direction = 'desc')
     {
         $query = $this->model->select('posts.id', 'posts.title', 'posts.created_at', 'posts.active', 'posts.slug'
-            , 'posts.thumbnail', 'posts.summary', 'posts.views', 'posts.code','posts.youtube_id'
+            , 'posts.thumbnail', 'posts.summary', 'posts.views', 'posts.code','posts.youtube_id','posts.type'
 //            , 'users.id', 'username'
         )
 //            ->join('users', 'users.id', '=', 'posts.user_id')

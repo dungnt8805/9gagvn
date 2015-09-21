@@ -38,10 +38,11 @@ class HomeController extends FrontendController
                     'title' => $post->title,
                     'slug' => $post->slug,
                     'code' => $post->code,
-                    'thumbnail' => $post->getThumbnail(),
-                    'url' => \Timthumb::link($post->getLink(), 500),
+                    'url' => $post->getLink(),
+                    'thumbnail' => \Timthumb::link($post->getThumbnail(), 500),
                     'username' => $post->username,
-                    'user_id' => $post->user_id
+                    'user_id' => $post->user_id,
+                    'type' => $post->type
                 ];
             }
             $response = ['status' => '1', 'msg' => 'success', 'data' => $tmp];
@@ -51,6 +52,6 @@ class HomeController extends FrontendController
 //        for ($i = 0; $i < 10; $i++) {
 //            $posts[] = $post;
 //        }
-            return $this->view('frontend.home.index');
+            return $this->view('frontend.home.index2');
     }
 }

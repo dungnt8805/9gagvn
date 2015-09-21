@@ -15,7 +15,7 @@
                         </header>
                         <div class="">
                             <a href="@{{ post.url }}" target="_blank" class="">
-                                <img src="@{{ post.thumbnail }}" alt="@{{ post.title }}">
+                                <img ng-src="@{{ post.thumbnail }}" alt="@{{ post.title }}">
                             </a>
                         </div>
                         <div class="post-text-container badge-item-description">
