@@ -14,11 +14,42 @@
                             <a href="@{{ post.url }}" target="_blank" title="@{{ post.title }}">
                                 <span class="video-frame" ng-if="post.type == 2">
                                     <span class="responsivewrapper"
-                                         style="background-image: url('@{{ post.thumbnail }}')"></span>
+                                          style="background-image: url('@{{ post.thumbnail }}')"></span>
                                     <span class="play">Play</span>
                                 </span>
                             </a>
                         </div>
+                        <header class="post-info-container">
+                            <h2 class="badge-item-title">
+                                <a href="@{{ post.url }}" target="_blank"
+                                   title="@{{ post.title }}">@{{ post.title }}</a>
+                            </h2>
+
+                            <div class="more-information">
+                                <div class="primary-info">
+                                    <p>Đăng bởi
+                                        <a href="" target="_blank" title="@{{ post.name }}">@{{ post.name }}</a>
+                                         9 giờ trước
+                                    </p>
+                                    <div class="info">
+                                        <p>
+                                            <i class="icon icon-points"></i>
+                                            <span class="ng-binding"></span>
+                                        </p>
+                                        <p>
+                                            <i class="icon icon-view"></i> @{{ post.views }}
+                                        </p>
+                                        <p>
+                                            <i class="icon icon-comment"></i>
+
+                                        </p>
+                                    </div>
+                                    <div class="social-btn fb-like">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
                     </article>
                 </div>
             </section>

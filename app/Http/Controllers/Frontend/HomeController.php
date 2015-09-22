@@ -42,7 +42,8 @@ class HomeController extends FrontendController
                     'thumbnail' => \Timthumb::link($post->getThumbnail(), 500),
                     'username' => $post->username,
                     'user_id' => $post->user_id,
-                    'type' => $post->type
+                    'type' => $post->type,
+                    'name' => $post->name
                 ];
             }
             $response = ['status' => '1', 'msg' => 'success', 'data' => $tmp];
