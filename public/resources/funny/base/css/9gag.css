@@ -23,8 +23,9 @@ section#list-view-2 h2 {
 }
 
 section#list-view-2 h2 a {
-    font-size: 20px;
-    color: #000;
+    font-size: 18px;
+    color: #222;
+    line-height: 18px;
 }
 
 section#list-view-2 .post-container {
@@ -472,4 +473,53 @@ article.post-page .post-container img {
     font-size: 0;
     background-size: cover;
     background-position: center;
+}
+
+section#list-view-2 .badge-entry-container header {
+    position: absolute;
+    top: 20px;
+    width: 305px;
+    overflow: hidden;
+    margin-left: 415px;
+}
+
+section#list-view-2 .badge-entry-container {
+    position: relative
+}
+
+section#list-view-2 .badge-entry-container:first-child header {
+    top: 0
+}
+
+section#list-view-2 h2 {
+    line-height: 22px;
+    word-wrap: break-word
+}
+
+section#list-view-2 article.badge-entry-container .more-information {
+    color: #444;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+section#list-view-2 article.badge-entry-container .primary-info {
+    margin-bottom: 5px;
+    line-height: 16px;
+}
+
+section#list-view-2 article.badge-entry-container .more-information p {
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: 1px;
+    font-size: 15px;
+}
+
+section#list-view-2 article.badge-entry-container .primary-info p {
+    font-size: 11px;
+    font-weight: normal;
+}
+
+section#list-view-2 article.badge-entry-container .more-information .info {
+    /*float: left;*/
 }

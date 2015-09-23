@@ -19,8 +19,8 @@
                                 </span>
                             </a>
                         </div>
-                        <header class="post-info-container">
-                            <h2 class="badge-item-title">
+                        <header class="post-info-container ">
+                            <h2 class="badge-item-title Mg0">
                                 <a href="@{{ post.url }}" target="_blank"
                                    title="@{{ post.title }}">@{{ post.title }}</a>
                             </h2>
@@ -29,24 +29,26 @@
                                 <div class="primary-info">
                                     <p>Đăng bởi
                                         <a href="" target="_blank" title="@{{ post.name }}">@{{ post.name }}</a>
-                                         9 giờ trước
+                                        9 giờ trước
                                     </p>
-                                    <div class="info">
-                                        <p>
-                                            <i class="icon icon-points"></i>
-                                            <span class="ng-binding"></span>
-                                        </p>
-                                        <p>
-                                            <i class="icon icon-view"></i> @{{ post.views }}
-                                        </p>
-                                        <p>
-                                            <i class="icon icon-comment"></i>
 
-                                        </p>
-                                    </div>
-                                    <div class="social-btn fb-like">
-                                        
-                                    </div>
+                                </div>
+                                <div class="info">
+                                    <p>
+                                        <i class="fa fa-thumbs-o-up"></i>
+                                        <span class="ng-binding"></span>
+                                    </p>
+
+                                    <p>
+                                        <i class="fa fa-eye"></i> @{{ post.views }}
+                                    </p>
+
+                                    <p>
+                                        <i class="fa fa-comment"></i>
+                                    </p>
+                                </div>
+                                <div class="social-btn fb-like">
+
                                 </div>
                             </div>
                         </header>
