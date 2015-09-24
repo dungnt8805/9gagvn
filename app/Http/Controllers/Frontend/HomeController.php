@@ -43,7 +43,10 @@ class HomeController extends FrontendController
                     'username' => $post->username,
                     'user_id' => $post->user_id,
                     'type' => $post->type,
-                    'name' => $post->name
+                    'name' => $post->name,
+                    'views' => $post->views,
+                    'points' => 0,
+                    'comments' => 0
                 ];
             }
             $response = ['status' => '1', 'msg' => 'success', 'data' => $tmp];

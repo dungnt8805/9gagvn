@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="info">
                                     <p>
-                                        <i class="fa fa-thumbs-o-up"></i>
+                                        <i class="fa fa-thumbs-o-up"></i> @{{ post.points }}
                                         <span class="ng-binding"></span>
                                     </p>
 
@@ -44,11 +44,29 @@
                                     </p>
 
                                     <p>
-                                        <i class="fa fa-comment"></i>
+                                        <i class="fa fa-comment"></i> @{{ post.comments }}
                                     </p>
                                 </div>
                                 <div class="social-btn fb-like">
 
+                                </div>
+                            </div>
+                            <div class="badge-entry-sticky-shadow stick-action">
+                                <div class="badge-entry-sticky">
+                                    <ul class="badge-item-vote-container horizontal-vote">
+                                        <li>
+                                            <a class="badge-item-vote-up up" href="#"></a>
+                                        </li>
+                                        <li>
+                                            <a class="badge-item-vote-down down" href="#"></a>
+                                        </li>
+                                        <li class="btn-comment">
+
+                                        </li>
+                                        <li class="btn-comment">
+                                            <a class="comment" target="_blank" href="@{{ post.url }}#comment-box">Bìnận</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </header>

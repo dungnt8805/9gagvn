@@ -179,7 +179,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     {
         $query = $this->model->select('posts.id', 'posts.title', 'posts.created_at', 'posts.active', 'posts.slug'
             , 'posts.thumbnail', 'posts.summary', 'posts.views', 'posts.code', 'posts.youtube_id', 'posts.type', 'users.name'
-            , 'users.id', 'username'
+            , 'users.id', 'username', 'posts.views'
         )
             ->join('users', 'users.id', '=', 'posts.user_id')
             ->orderBy($orderBy, $direction);
