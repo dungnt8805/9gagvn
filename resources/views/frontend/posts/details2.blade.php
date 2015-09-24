@@ -6,7 +6,13 @@
                      data-entry-votes="{{$post->points}}"
                      data-entry-comments="{{$post->comments}}" id="jsid-entry-entity-{{$post->code}}"
                      class="badge-entry-container badge-entry-entity badge-post-page badge-in-view post-page pin-tool-bar">
-                
+                <header>
+                    <div class="left-box">
+                        <h2 class="badge-item-title">
+                            {{$post->title}}
+                        </h2>
+                    </div>
+                </header>
             </article>
         </section>
     </div>

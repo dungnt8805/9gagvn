@@ -364,9 +364,10 @@ article.post-page .post-container img {
 
 .post-page .naughty-box .img-container {
     background-color: #f4f4f4;
-    width: 630px;
+    width: 100%;
     height: 90px;
-    overflow: hidden
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .post-afterbar-a {

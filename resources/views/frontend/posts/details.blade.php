@@ -37,16 +37,10 @@
                                     <li><a class="badge-facebook-share badge-evt badge-track btn-share facebook"
                                            href="javascript:void(0);"
                                            data-track="social,fb.s,,,d,a2q0gzd,p"
-                                           data-evt="Facebook-Share,PostClicked,http://9gag.com/gag/a2q0gzd"
+                                           data-evt="Facebook-Share,PostClicked,{{$post->getLink()}}"
                                            data-share="{{$post->getLink()}}?ref=fb.s" rel="nofollow">Facebook</a>
                                     </li>
-                                    <li><a class="badge-twitter-share badge-evt badge-track btn-share twitter"
-                                           href="javascript:void(0);"
-                                           data-track="social,t.s,,,d,a2q0gzd,p"
-                                           data-evt="Twitter-Share,PostClicked,http://9gag.com/gag/a2q0gzd"
-                                           data-title="{{$post->title}}"
-                                           data-share="{{$post->getLink()}}?ref=t" rel="nofollow">Twitter</a>
-                                    </li>
+
                                 </ul>
                             </div>
                             <div class="others">
@@ -56,29 +50,23 @@
                                 <ul>
                                     <li><a href="javascript:void(0);" class="badge-gplus-share badge-evt badge-track"
                                            data-track="social,gp.s,,,d,a2q0gzd,p"
-                                           data-evt="GPlus-Share,PostClicked,http://9gag.com/gag/a2q0gzd"
+                                           data-evt="GPlus-Share,PostClicked,{{$post->getLink()}}"
                                            data-share="{{$post->getLink()}}?ref=gp" rel="nofollow">Google+</a>
                                     </li>
                                     <li><a href="javascript:void(0);"
                                            class="badge-pinterest-share badge-evt badge-track"
                                            data-track="social,pn.s,,,d,a2q0gzd,p"
-                                           data-evt="Pinterest-Share,PostClicked,http://9gag.com/gag/a2q0gzd"
-                                           data-title="It%27s%20astounding%20how%20many%20people%20can%27t%20grasp%20this%20concept%20on%20the%20highway."
+                                           data-evt="Pinterest-Share,PostClicked,{{$post->getLink()}}"
+                                           data-title="{{$post->title}}"
                                            data-img="http://img-9gag-fun.9cache.com/photo/a2q0gzd_700b.jpg"
                                            data-share="{{$post->getLink()}}?ref=pn" rel="nofollow">Pinterest</a>
                                     </li>
-                                    <li>
-                                        <a href="mailto:?subject=Check%20out%20%22It%27s%20astounding%20how%20many%20people%20can%27t%20grasp%20this%20concept%20on%20the%20highway.%22&body=This%20is%20funny%2C%20you%20must%20check%20it%20out%21%20%3AD%0AIt%27s%20astounding%20how%20many%20people%20can%27t%20grasp%20this%20concept%20on%20the%20highway.%0Ahttp%3A%2F%2F9gag.com%2Fgag%2Fa2q0gzd%3Fref%3D9g.m"
-                                           class="badge-email-share badge-evt badge-track"
-                                           data-track="social,9g.m,,,d,a2q0gzd,p"
-                                           data-evt="Email-Share,PostClicked,http://9gag.com/gag/a2q0gzd"
-                                           target="_blank" rel="nofollow">Email</a></li>
                                 </ul>
                             </div>
                             <div class="post-nav">
-                                <a class="badge-fast-entry badge-prev-post-entry hide " data-entry-key="aGRBbK7"
+                                <a class="badge-fast-entry badge-prev-post-entry hide " data-entry-key="{{$post->code}}"
                                    href="/gag/aGRBbK7" rel="nofollow"></a>
-                                <a class="badge-fast-entry badge-next-post-entry next " data-entry-key="aGRBbK7"
+                                <a class="badge-fast-entry badge-next-post-entry next " data-entry-key="{{$post->code}}"
                                    href="/gag/aGRBbK7" rel="nofollow">
                                     <span class="label">Next Post</span><span class="arrow"></span></a>
                             </div>
@@ -134,28 +122,33 @@
                             </div>
                         </div>
                     </div>
-                    <div class="post-afterbar-a in-post-bot full-width">
-                        <div class="share badge-share-bar">
-                            <ul>
-                                <li>
-                                    <a class="badge-facebook-share badge-facebook-bot-share badge-evt badge-track btn-share facebook"
-                                       href="javascript:;" data-track="social,fb.s,,,d,{{$post->code}},p"
-                                       data-evt="Facebook-Share-Bot,PostClicked,http://9gag.com/gag/aRVzQVy"
-                                       data-share="http://9gag.com/gag/aRVzQVy?ref=fb.s" rel="nofollow">Share on
-                                        Facebook</a>
-                                </li>
-                                <li>
-                                    <a class="badge-twitter-share badge-twitter-bot-share badge-evt badge-track btn-share twitter"
-                                       href="javascript:void(0);" data-track="social,t.s,,,d,{{$post->code}},p"
-                                       data-evt="Twitter-Share-Bot,PostClicked,http://9gag.com/gag/aRVzQVy"
-                                       data-title="RWD%20ftw."
-                                       data-share="http://9gag.com/gag/aRVzQVy?ref=t" rel="nofollow">Share on
-                                        Twitter</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    {{--<div class="post-afterbar-a in-post-bot full-width">--}}
+                    {{--<div class="share badge-share-bar">--}}
+                    {{--<ul>--}}
+                    {{--<li>--}}
+                    {{--<a class="badge-facebook-share badge-facebook-bot-share badge-evt badge-track btn-share facebook"--}}
+                    {{--href="javascript:;" data-track="social,fb.s,,,d,{{$post->code}},p"--}}
+                    {{--data-evt="Facebook-Share-Bot,PostClicked,http://9gag.com/gag/aRVzQVy"--}}
+                    {{--data-share="http://9gag.com/gag/aRVzQVy?ref=fb.s" rel="nofollow">Share on--}}
+                    {{--Facebook</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                    {{--<a class="badge-twitter-share badge-twitter-bot-share badge-evt badge-track btn-share twitter"--}}
+                    {{--href="javascript:void(0);" data-track="social,t.s,,,d,{{$post->code}},p"--}}
+                    {{--data-evt="Twitter-Share-Bot,PostClicked,http://9gag.com/gag/aRVzQVy"--}}
+                    {{--data-title="RWD%20ftw."--}}
+                    {{--data-share="http://9gag.com/gag/aRVzQVy?ref=t" rel="nofollow">Share on--}}
+                    {{--Twitter</a>--}}
+                    {{--</li>--}}
+                    {{--</ul>--}}
+                    {{--</div>--}}
+                    {{--</div>--}}
                     <div class="badge-entry-info post-afterbar-meta">
+                        <p class="left">
+                            Đăng bởi {!! HTML::link("",$post->name,['target'=>'_blank','title'=>$post->name]) !!}
+                            {!! $post->created_at->diffForHumans() !!}
+                        </p>
+
                         <p>
                             <a class="badge-item-report" href="javascript:;">Report</a>
                             <span class="badge-item-delete-dot hide"> · </span>

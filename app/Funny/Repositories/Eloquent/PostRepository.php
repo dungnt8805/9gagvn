@@ -248,7 +248,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     public function getByCode($code)
     {
         $query = $this->model->select('posts.id', 'posts.code', 'posts.title', 'posts.thumbnail', 'posts.type', 'posts.embed'
-            , 'posts.summary', 'posts.content', 'users.id', 'username', 'comments', 'youtube_id')
+            , 'posts.summary', 'posts.content', 'posts.created_at', 'users.id', 'username', 'users.name', 'comments', 'youtube_id')
             ->join('users', 'users.id', '=', 'posts.user_id')
 //            ->join('comments','comments.post_id','=','posts.id')
             ->whereCode($code)->whereActive(true)->first();
