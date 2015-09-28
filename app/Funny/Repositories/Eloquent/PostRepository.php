@@ -178,13 +178,14 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
      * @param int $user_id
      * @param string $orderBy
      * @param string $direction
+     * @param array $array
      * @return \Illuminate\Support\Collection
      */
-    public function index($n, $q = null, $category = null, $user_id = null, $orderBy = 'created_at', $direction = 'desc', $check_liked = 0)
+    public function index($n, $q = null, $category = null, $user_id = null, $orderBy = 'created_at', $direction = 'desc', $array = null)
     {
         $query = $this->model->select('posts.id', 'posts.title', 'posts.created_at', 'posts.active', 'posts.slug'
             , 'posts.thumbnail', 'posts.summary', 'posts.views', 'posts.code', 'posts.youtube_id', 'posts.type', 'users.name'
-            , 'users.id as user_id', 'username', 'posts.views', 'posts.likes'
+            , 'users.id as user_id', 'username', 'posts.views', 'posts.likes', 'temp_likes.score'
         )
             ->join('users', 'users.id', '=', 'posts.user_id')
             ->orderBy($orderBy, $direction);
@@ -201,13 +202,12 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
             $query->where('user_id', '=', $user_id);
             $appends['user_id'] = $user_id;
         }
-        if ($check_liked) {
-            
-        }
-
+        $u_id = isset($array['check_liked']) ? $array['check_liked']['user_id'] : 0;
+        $query->leftJoin(\DB::raw("(Select post_id,score from likes where user_id=" . $u_id . ") as temp_likes")
+            , 'temp_likes.post_id', '=', 'posts.id');
         return $query->paginate($n)->appends($appends);
-
     }
+
 
     /**
      * Get resource an references to edit

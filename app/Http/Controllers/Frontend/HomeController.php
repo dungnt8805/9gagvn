@@ -31,7 +31,15 @@ class HomeController extends FrontendController
     public function getIndex()
     {
         if (Request::isMethod('post')) {
-            $posts = $this->post->index(10);
+            $addition = [];
+            if (\Auth::check()) {
+                $addition = [
+                    'check_liked' => [
+                        'user_id' => \Auth::user()->id
+                    ]
+                ];
+            }
+            $posts = $this->post->index(10, null, null, null, 'created_at', 'desc', $addition);
             $tmp = [];
             foreach ($posts as $post) {
                 $tmp[] = [
@@ -47,6 +55,7 @@ class HomeController extends FrontendController
                     'name' => $post->name,
                     'views' => $post->views,
                     'likes' => $post->likes,
+                    'score' => $post->score,
                     'comments' => 0,
                     'created_at_string' => Date::parse($post->created_at)->diffForHumans()
                 ];

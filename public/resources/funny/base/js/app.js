@@ -64,10 +64,8 @@ App.controller("NewsfeedCtrl", function ($scope, PostServices, VoteServices, $ht
         $scope.busy = true;
         VoteServices.load("like", post_id)
             .success(function (res) {
-                var likes = parseInt($('#point').html());
-                $('.btn-vote .down').removeClass('alter');
-                $('.btn-vote .up').addClass('alter');
-                $('#point').html(likes + res.data);
+                var likes = parseInt($('#point-' + post_id).html());
+                $('#point-' + post_id).html(likes + res.data);
                 $scope.busy = false;
             });
     };
@@ -76,12 +74,8 @@ App.controller("NewsfeedCtrl", function ($scope, PostServices, VoteServices, $ht
         $scope.busy = true;
         VoteServices.load("dislike", post_id)
             .success(function (res) {
-                var likes = parseInt($('#point').html());
-                $('#point').html(likes - res.data);
-                $('.btn-vote .down').addClass('alter');
-                $('.btn-vote .up').removeClass('alter');
-                $scope.busy = false;
-            }).failure(function () {
+                var likes = parseInt($('#point-' + post_id).html());
+                $('#point-' + post_id).html(likes - res.data);
                 $scope.busy = false;
             });
 
@@ -104,3 +98,71 @@ App.directive('actionLike', function () {
         element.attr('ng-click', "like(" + post_id + ")");
     }
 });
+
+(function (angular, document) {
+    angular.module("AppVL", ['infinite-scroll', 'ngFileUpload', 'LocalStorageModule', 'ngCookie', 'ngAnimate', 'facebook'])
+        .config(function (FacebookProvider, $httpProvider, localStorageServiceProvider, $provide) {
+            localStorageServiceProvider.setPrefix('9gagvn');
+            FacebookProvider.init({
+                appId: fb_app_id,
+                cookie: 1,
+                xfbml: 1,
+                version: 'v2.3'
+            });
+            $httpProvider.defaults.xsrfCookieName = '_token';
+            $httpProvider.defaults.xsrfHeaderName = 'x-xsrf-token';
+            $provide.decorator('$browser', ['$delegate', function ($delegate) {
+                $delegate.onUrlChange = function () {
+                };
+                $delegate.url = function () {
+                    return "";
+                }
+                return $delegate;
+            }])
+        }).run(function ($rootScope, localStorageService, $window, $cookie, GAGVN) {
+            $rootScope.settings = localStorageService.get('settings') || {
+                    quickSettings: false
+                };
+            $rootScope.userInfo = GAGVN.getUser();
+            $rootScope._csrf = $cookie['_token'];
+            GAGVN.initWindow();
+        }).service('GAGVN', function ($rootScope, $http, $cookie, $window, $interval, Facebook, localStorageService, anchorSmoothScroll) {
+            var timeout = 10000;
+            this.reload;
+            this.getData = function (url, data) {
+                var config = {
+                    timeout: timeout,
+                    params: {
+                        gagvn: 'JSON_CALLBACK',
+                        _csrf: $cookie['_token']
+                    }
+                };
+                angular.extend(config.params, data);
+                return $http.json(url, config);
+            };
+            this.postData = function (url, data) {
+                var config = {
+                    timeout: timeout
+                };
+                return $http.post(url, data, config);
+            };
+            this.getUser = function () {
+                var userInfo = localStorageService.get('userInfo') || null;
+                if (!userInfo || userInfo.user_id != user_id) userInfo = null;
+                return userInfo;
+            }
+        }).service('anchorSmoothScroll', function ($document, $window) {
+            var document = $document[0];
+            var window = $window;
+
+            function getCurrentPagePosition(window, document) {
+                if (window.pageYOffset) return window.pageYOffset;
+                if (document.documentElement && document.documentElement.scrollTop)
+                    return document.documentElement.scrollTop;
+                if (document.body.scrollTop) return document.body.scrollTop;
+                return 0;
+
+            }
+        })
+})
+(angular, document);

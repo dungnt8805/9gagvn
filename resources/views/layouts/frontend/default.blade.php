@@ -87,7 +87,8 @@
 </div>
 <script type="text/javascript">
     // var main_url
-    var main_url = '{!! Config::get('app.url') !!}';
+    var main_url = '{!! Config::get('app.url') !!}',
+            fb_app_id = '{!! Config::get('service.facebook.client_id') !!}';
 </script>
 
 <script src="{{asset('resources/funny/base/js/post_item.js')}}"></script>

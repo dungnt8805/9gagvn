@@ -61,9 +61,11 @@ interface PostRepositoryInterface
      * @param int $user_id
      * @param string $orderBy
      * @param string $direction
+     * @param array $array
      * @return \Illuminate\Support\Collection
      */
-    public function index($n, $q = null, $category = null, $user_id = null, $orderBy = 'created_at', $direction = 'desc');
+    public function index($n, $q = null, $category = null, $user_id = null, $orderBy = 'created_at', $direction = 'desc', $array = null);
+
 
     /**
      * Get resource an references to edit

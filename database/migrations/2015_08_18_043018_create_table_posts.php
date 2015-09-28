@@ -27,7 +27,7 @@ class CreateTablePosts extends Migration
             $table->string('code', 10)->unique();
             $table->string('youtube_id', 15)->nullable();
             $table->integer('views')->unsigned()->default(0);
-            $table->integer('likes')->unsigned()->default(0);
+            $table->integer('likes')->default(0);
             $table->integer('dislikes')->default(0)->unsigned();
             $table->integer('comments')->default(0)->unsigned();
             $table->boolean('not_safe_for_work')->default(false);

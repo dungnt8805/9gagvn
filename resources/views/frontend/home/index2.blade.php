@@ -35,7 +35,8 @@
                                 </div>
                                 <div class="info">
                                     <p>
-                                        <i class="fa fa-smile-o"></i> <span id="point">@{{ post.likes }}</span>
+                                        <i class="fa fa-smile-o"></i> <span
+                                                id="point-@{{ post.id }}">@{{ post.likes }}</span>
 
                                     </p>
 
@@ -55,11 +56,14 @@
                                 <div class="badge-entry-sticky">
                                     <ul class="btn-vote left">
                                         <li>
-                                            <a class="badge-item-vote-up up" href="#"
+                                            <a class="badge-item-vote-up up" ng-class="{alter: post.score == 1}"
+                                               href="#"
                                                ng-click="like(post.id)"></a>
                                         </li>
                                         <li>
-                                            <a class="badge-item-vote-down down" href="#" ng-click="dislike(post.id)"></a>
+                                            <a class="badge-item-vote-down down" ng-class="{alter: post.score == -1}"
+                                               href="#"
+                                               ng-click="dislike(post.id)"></a>
                                         </li>
                                         <li class="btn-comment">
 
