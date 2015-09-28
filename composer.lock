@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0d8350458324028dd434d2ad5eaf85ac",
-    "content-hash": "977b108f7efb3afb43e384279eb7d0ae",
+    "hash": "042b78e3ea8f34847e0e5a0379d56243",
+    "content-hash": "5469c28af58703b88df41e4becab92ef",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -82,6 +82,60 @@
                 "sdk"
             ],
             "time": "2015-09-17 19:59:34"
+        },
+        {
+            "name": "barryvdh/laravel-debugbar",
+            "version": "v2.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/barryvdh/laravel-debugbar.git",
+                "reference": "23672cbbe78278ff1fdb258caa0b1de7b5d0bc0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/23672cbbe78278ff1fdb258caa0b1de7b5d0bc0c",
+                "reference": "23672cbbe78278ff1fdb258caa0b1de7b5d0bc0c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0.17|5.1.*",
+                "maximebf/debugbar": "~1.10.2",
+                "php": ">=5.4.0",
+                "symfony/finder": "~2.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Barryvdh\\Debugbar\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Barry vd. Heuvel",
+                    "email": "barryvdh@gmail.com"
+                }
+            ],
+            "description": "PHP Debugbar integration for Laravel",
+            "keywords": [
+                "debug",
+                "debugbar",
+                "laravel",
+                "profiler",
+                "webprofiler"
+            ],
+            "time": "2015-09-09 11:39:27"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -913,6 +967,62 @@
             "time": "2015-04-20 18:58:01"
         },
         {
+            "name": "jenssegers/date",
+            "version": "v3.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/laravel-date.git",
+                "reference": "27f9fed44cd988a9c3d03857093b32f250ea704d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/laravel-date/zipball/27f9fed44cd988a9c3d03857093b32f250ea704d",
+                "reference": "27f9fed44cd988a9c3d03857093b32f250ea704d",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "~1.0",
+                "php": ">=5.3.3",
+                "symfony/translation": "~2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "satooshi/php-coveralls": "~0.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jenssegers\\Date\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "http://jenssegers.be"
+                }
+            ],
+            "description": "A date library to help you work with dates in different languages",
+            "keywords": [
+                "carbon",
+                "date",
+                "datetime",
+                "i18n",
+                "laravel",
+                "time",
+                "translation"
+            ],
+            "time": "2015-09-16 07:55:11"
+        },
+        {
             "name": "jeremeamia/SuperClosure",
             "version": "2.1.0",
             "source": {
@@ -1392,6 +1502,62 @@
                 "twitter"
             ],
             "time": "2015-08-22 09:49:14"
+        },
+        {
+            "name": "maximebf/debugbar",
+            "version": "v1.10.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maximebf/php-debugbar.git",
+                "reference": "7b2006e6e095126b5a061ec33fca3d90ea8a8219"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/7b2006e6e095126b5a061ec33fca3d90ea8a8219",
+                "reference": "7b2006e6e095126b5a061ec33fca3d90ea8a8219",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "~1.0",
+                "symfony/var-dumper": "~2.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "kriswallsmith/assetic": "The best way to manage assets",
+                "monolog/monolog": "Log using Monolog",
+                "predis/predis": "Redis storage"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.10-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "DebugBar": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Bouroumeau-Fuseau",
+                    "email": "maxime.bouroumeau@gmail.com",
+                    "homepage": "http://maximebf.com"
+                }
+            ],
+            "description": "Debug bar in the browser for php application",
+            "homepage": "https://github.com/maximebf/php-debugbar",
+            "keywords": [
+                "debug"
+            ],
+            "time": "2015-02-05 07:51:20"
         },
         {
             "name": "monolog/monolog",
@@ -1926,12 +2092,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/ClassLoader.git",
+                "url": "https://github.com/symfony/class-loader.git",
                 "reference": "d957ea6295d7016e20d7eff33a6c1deef819c0d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ClassLoader/zipball/d957ea6295d7016e20d7eff33a6c1deef819c0d4",
+                "url": "https://api.github.com/repos/symfony/class-loader/zipball/d957ea6295d7016e20d7eff33a6c1deef819c0d4",
                 "reference": "d957ea6295d7016e20d7eff33a6c1deef819c0d4",
                 "shasum": ""
             },
@@ -1976,12 +2142,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Console.git",
+                "url": "https://github.com/symfony/console.git",
                 "reference": "9ff9032151186bd66ecee727d728f1319f52d1d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/9ff9032151186bd66ecee727d728f1319f52d1d8",
+                "url": "https://api.github.com/repos/symfony/console/zipball/9ff9032151186bd66ecee727d728f1319f52d1d8",
                 "reference": "9ff9032151186bd66ecee727d728f1319f52d1d8",
                 "shasum": ""
             },
@@ -2033,12 +2199,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/CssSelector.git",
+                "url": "https://github.com/symfony/css-selector.git",
                 "reference": "ffb5f3b8a75f8d1b9801e74dc6789a0751a670ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/ffb5f3b8a75f8d1b9801e74dc6789a0751a670ad",
+                "url": "https://api.github.com/repos/symfony/css-selector/zipball/ffb5f3b8a75f8d1b9801e74dc6789a0751a670ad",
                 "reference": "ffb5f3b8a75f8d1b9801e74dc6789a0751a670ad",
                 "shasum": ""
             },
@@ -2086,12 +2252,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/Debug.git",
+                "url": "https://github.com/symfony/debug.git",
                 "reference": "726bf9651d29f53243281d0b6418cfaa5e318281"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Debug/zipball/726bf9651d29f53243281d0b6418cfaa5e318281",
+                "url": "https://api.github.com/repos/symfony/debug/zipball/726bf9651d29f53243281d0b6418cfaa5e318281",
                 "reference": "726bf9651d29f53243281d0b6418cfaa5e318281",
                 "shasum": ""
             },
@@ -2141,12 +2307,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/DomCrawler.git",
+                "url": "https://github.com/symfony/dom-crawler.git",
                 "reference": "2a161e4ee2b2f33d4153be58df4f6f2a5506936e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DomCrawler/zipball/2a161e4ee2b2f33d4153be58df4f6f2a5506936e",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/2a161e4ee2b2f33d4153be58df4f6f2a5506936e",
                 "reference": "2a161e4ee2b2f33d4153be58df4f6f2a5506936e",
                 "shasum": ""
             },
@@ -2194,12 +2360,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/EventDispatcher.git",
+                "url": "https://github.com/symfony/event-dispatcher.git",
                 "reference": "b58c916f1db03a611b72dd702564f30ad8fe83fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/b58c916f1db03a611b72dd702564f30ad8fe83fa",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/b58c916f1db03a611b72dd702564f30ad8fe83fa",
                 "reference": "b58c916f1db03a611b72dd702564f30ad8fe83fa",
                 "shasum": ""
             },
@@ -2301,12 +2467,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/HttpFoundation.git",
+                "url": "https://github.com/symfony/http-foundation.git",
                 "reference": "7253c2041652353e71560bbd300d6256d170ddaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/7253c2041652353e71560bbd300d6256d170ddaf",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/7253c2041652353e71560bbd300d6256d170ddaf",
                 "reference": "7253c2041652353e71560bbd300d6256d170ddaf",
                 "shasum": ""
             },
@@ -2354,12 +2520,12 @@
             "version": "v2.7.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/symfony/HttpKernel.git",
+                "url": "https://github.com/symfony/http-kernel.git",
                 "reference": "fd9c7af92c9e3ade1327cc3af10b17731eebc4a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/fd9c7af92c9e3ade1327cc3af10b17731eebc4a7",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/fd9c7af92c9e3ade1327cc3af10b17731eebc4a7",
                 "reference": "fd9c7af92c9e3ade1327cc3af10b17731eebc4a7",
                 "shasum": ""
             },

@@ -21,6 +21,8 @@ Route::group(['namespace' => 'Auth'], function () {
     Route::post('register', 'AuthController@postRegister');
 
     Route::get('/auth/facebook', ['as' => 'auth.facebook', 'uses' => 'AuthController@getFacebook']);
+
+    Route::controller('vote', 'VoteController');
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
@@ -54,6 +56,5 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::controller('medias', 'MediasController', [
 
     ]);
-
 
 });

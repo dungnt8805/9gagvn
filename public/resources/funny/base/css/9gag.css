@@ -110,6 +110,14 @@ section#list-view-2 p.post-meta a {
     background: url("../images/sticky-vote.png") no-repeat
 }
 
+.btn-vote .up.alter {
+    background: url("../images/sticky-vote.png") no-repeat -41px 0;
+}
+
+.btn-vote .down.alter {
+    background: url("../images/sticky-vote.png") no-repeat -41px -32px;
+}
+
 .btn-vote .comment {
     background: url("../images/other-buttons.png") no-repeat 0 -32px;
 }
@@ -258,7 +266,7 @@ section#individual-post header p.post-meta a {
     text-indent: 0;
     border-radius: 3px 0 0 3px;
     padding-left: 36px;
-    width: 32px;
+    width: 41px;
     color: #999;
     font-weight: 700;
     text-transform: uppercase;
@@ -274,7 +282,18 @@ section#individual-post header p.post-meta a {
 }
 
 .horizontal-vote li:last-child {
-    left: 69px;
+    left: 41px;
+}
+
+.horizontal-vote li:last-child a {
+
+    border-left: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0;
+}
+
+.horizontal-vote li:last-child a:hover {
+    border: 1px solid #989595;
 }
 
 .popup-menu {
@@ -523,4 +542,87 @@ section#list-view-2 article.badge-entry-container .primary-info p {
 
 section#list-view-2 article.badge-entry-container .more-information .info {
     /*float: left;*/
+}
+
+article.post-page .post-header {
+    display: block
+}
+
+article.post-page .left-box {
+    display: block;
+    width: 520px;
+    float: left;
+    margin-right: 15px;
+}
+
+.post-meta {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 20px;
+    margin-bottom: 15px;
+}
+
+.post-page .post-meta .user-info {
+    padding-top: 1px;
+}
+
+.post-meta .user-info {
+    display: inline-block;
+    float: left;
+    padding-top: 3px;
+}
+
+.user-info > span {
+    height: 20px;
+    display: inline-block
+}
+
+.user-info span.post-count-point, .user-info span.post-count-view, .user-info span.post-count-comment {
+    margin-right: 5px;
+}
+
+article.post-page .right-box {
+    margin-top: 30px;
+    width: 165px;
+    display: block;
+    float: right;
+}
+
+article.post-page .right-box .creator {
+    background: #f1f1f1;
+    padding: 5px 8px;
+    display: block;
+    position: relative;
+    border-radius: 3px;
+    min-height: 60px;
+}
+
+article.post-page .right-box .creator .timer {
+    font-size: 12px;
+    display: block;
+    margin-bottom: 3px;
+}
+
+article.post-page .right-box .creator-detail .avatar {
+    float: left;
+    width: 32px;
+    height: 32px;
+}
+
+article.post-page .right-box .creator-detail .info {
+    margin-left: 35px;
+    font-size: 12px;
+}
+
+article.post-page .right-box .creator-detail .info span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-highlight {
+    font-size: 14px;
+    font-weight: bold;
 }

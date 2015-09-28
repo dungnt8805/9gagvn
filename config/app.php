@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'vi',
 
     /*
     |--------------------------------------------------------------------------
@@ -149,6 +149,8 @@ return [
         GrahamCampbell\Flysystem\FlysystemServiceProvider::class,
 //        \App\Funny\Facades\ImageFacade::class,
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Jenssegers\Date\DateServiceProvider::class,
 
 
     ],
@@ -204,7 +206,8 @@ return [
         'ImageManager' => \App\Funny\Facades\ImageFacade::class,
         'Timthumb' => \App\Funny\Facades\TimthumbFacade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Date' => Jenssegers\Date\Date::class,
     ],
 
 ];

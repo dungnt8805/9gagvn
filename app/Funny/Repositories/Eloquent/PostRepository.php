@@ -10,6 +10,7 @@ namespace App\Funny\Repositories\Eloquent;
 use App\Funny\Models\Post;
 use App\Funny\Repositories\Contracts\BaseRepository;
 use App\Funny\Repositories\CategoryRepositoryInterface;
+use App\Funny\Repositories\Contracts\LikeRepositoryInterface;
 use App\Funny\Repositories\Contracts\PostRepositoryInterface;
 use App\Funny\Repositories\Contracts\TagRepositoryInterface;
 use App\Funny\Repositories\StoreRepositoryInterface;
@@ -25,6 +26,8 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
 
     protected $tag;
 
+    protected $like;
+
     /**
      * Create a new DbPostRepository instance.
      *
@@ -32,13 +35,15 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
      */
 
 
-    public function __construct(Post $post, CategoryRepositoryInterface $category, StoreRepositoryInterface $store, TagRepositoryInterface $tag)
+    public function __construct(Post $post, CategoryRepositoryInterface $category
+        , StoreRepositoryInterface $store, TagRepositoryInterface $tag, LikeRepositoryInterface $like)
     {
         $this->model = $post;
         $this->category = $category;
         $this->store = $store;
 
         $this->tag = $tag;
+        $this->like = $like;
     }
 
     /**
@@ -175,11 +180,11 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
      * @param string $direction
      * @return \Illuminate\Support\Collection
      */
-    public function index($n, $q = null, $category = null, $user_id = null, $orderBy = 'created_at', $direction = 'desc')
+    public function index($n, $q = null, $category = null, $user_id = null, $orderBy = 'created_at', $direction = 'desc', $check_liked = 0)
     {
         $query = $this->model->select('posts.id', 'posts.title', 'posts.created_at', 'posts.active', 'posts.slug'
             , 'posts.thumbnail', 'posts.summary', 'posts.views', 'posts.code', 'posts.youtube_id', 'posts.type', 'users.name'
-            , 'users.id', 'username', 'posts.views'
+            , 'users.id as user_id', 'username', 'posts.views', 'posts.likes'
         )
             ->join('users', 'users.id', '=', 'posts.user_id')
             ->orderBy($orderBy, $direction);
@@ -195,6 +200,9 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
         if ($user_id != null) {
             $query->where('user_id', '=', $user_id);
             $appends['user_id'] = $user_id;
+        }
+        if ($check_liked) {
+            
         }
 
         return $query->paginate($n)->appends($appends);
@@ -248,10 +256,105 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     public function getByCode($code)
     {
         $query = $this->model->select('posts.id', 'posts.code', 'posts.title', 'posts.thumbnail', 'posts.type', 'posts.embed'
-            , 'posts.summary', 'posts.content', 'posts.created_at', 'users.id', 'username', 'users.name', 'comments', 'youtube_id')
+            , 'posts.summary', 'posts.content', 'posts.views', 'posts.created_at', 'username', 'users.avatar', 'posts.user_id'
+            , 'users.name', 'comments', 'youtube_id')
             ->join('users', 'users.id', '=', 'posts.user_id')
 //            ->join('comments','comments.post_id','=','posts.id')
             ->whereCode($code)->whereActive(true)->first();
         return $query;
+    }
+
+
+    /**
+     * increase view
+     *
+     * @param \App\Funny\Models\Post $post
+     * @return mixed
+     */
+    public function increaseView($post)
+    {
+        $post->views += 1;
+        $post->save();
+    }
+
+
+    /**
+     *
+     * @param $post_id
+     * @param $user_id
+     * @return integer
+     */
+    public function like($post_id, $user_id)
+    {
+        $i = 0;
+        $post = $this->findById($post_id);
+        if (!is_null($post)) {
+            $check = $this->like->checkLike($post_id, $user_id);
+            if (is_null($check) || $check->score == -1) {
+                $i = 1;
+                if (!is_null($check) && $check->score == -1) {
+                    $i = 2;
+                    $check->delete();
+                }
+
+                $post->likes()->attach($user_id);
+                $post->likes += $i;
+                $post->save();
+            }
+        }
+        return $i;
+    }
+
+    /**
+     *
+     * @param $post_id
+     * @param $user_id
+     * @return integer
+     */
+    public function unlike($post_id, $user_id)
+    {
+        $i = 0;
+        $post = $this->findById($post_id);
+        if (!is_null($post)) {
+            $check = $this->like->checkLike($post_id, $user_id);
+            if (is_null($check)) {
+                $i = 1;
+                if ($check->score == -1) {
+                    $i = -1;
+                }
+                $post->likes()->dettach($user_id);
+                $post->likes -= $i;
+                $post->save();
+            }
+        }
+        return $i;
+
+    }
+
+    /**
+     *
+     * @param $post_id
+     * @param $user_id
+     * @return integer
+     */
+    public function dislike($post_id, $user_id)
+    {
+        $i = 0;
+        $post = $this->findById($post_id);
+        if (!is_null($post)) {
+            $check = $this->like->checkLike($post_id, $user_id);
+            if (is_null($check) || $check->score == 1) {
+                $i = 1;
+                if ($check->score == 1) {
+                    $i = 2;
+                    $check->delete();
+                }
+
+                $post->likes()->attach($user_id, ['score' => -1]);
+                $post->likes -= $i;
+                $post->save();
+            }
+        }
+        return $i;
     }
 }

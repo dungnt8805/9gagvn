@@ -20,9 +20,10 @@ abstract class Controller extends BaseController
     public function __construct()
     {
         $this->beforeFilter('csrf', ['on' => 'post']);
-        
-        if(Auth::check())
+
+        if (Auth::check())
             $this->user = Auth::user();
+
     }
 
     /**
@@ -60,15 +61,16 @@ abstract class Controller extends BaseController
     {
         return View::make($path, $data);
     }
-    
+
     /**
-     *  Return input data 
-     * 
+     *  Return input data
+     *
      * @return array
-     * 
+     *
      */
-    protected function input(){
-        return Input::all();   
+    protected function input()
+    {
+        return Input::all();
     }
 
     /**

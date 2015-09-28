@@ -99,4 +99,9 @@ class Post extends Model
             $thumbnail = "https://i.ytimg.com/vi/$this->youtube_id/hqdefault.jpg";
         return $thumbnail;
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'likes', 'post_id', 'user_id')->withPivot('score');
+    }
 }

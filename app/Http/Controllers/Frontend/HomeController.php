@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Frontend;
 
 
 use App\Funny\Repositories\Contracts\PostRepositoryInterface;
+use Jenssegers\Date\Date;
 use Request;
 
 class HomeController extends FrontendController
@@ -45,17 +46,14 @@ class HomeController extends FrontendController
                     'type' => $post->type,
                     'name' => $post->name,
                     'views' => $post->views,
-                    'points' => 0,
-                    'comments' => 0
+                    'likes' => $post->likes,
+                    'comments' => 0,
+                    'created_at_string' => Date::parse($post->created_at)->diffForHumans()
                 ];
             }
             $response = ['status' => '1', 'msg' => 'success', 'data' => $tmp];
             return $this->json($response);
         } else
-//        $posts = $this->post->index(10);
-//        for ($i = 0; $i < 10; $i++) {
-//            $posts[] = $post;
-//        }
             return $this->view('frontend.home.index2');
     }
 }

@@ -6,31 +6,74 @@
                 <article data-entry-id="{{$post->code}}" data-entry-url="" data-entry-votes="" data-entry-comments=""
                          id="jsid-entry-entity-{{$post->code}}"
                          class="badge-entry-container badge-entry-entity badge-post-page post-page badge-in-view badge-in-view-focus">
-                    <header>
-                        <h2 class="badge-item-title">{{$post->title}}</h2>
+                    <div class="post-header">
+                        <div class="left-box">
+                            <header>
+                                <h2 class="badge-item-title">{{$post->title}}</h2>
 
-                        <p class="post-meta">
-                            <a class="badge-evt point" id="love-count-{{$post->code}}" href="javascript:;"
-                               data-evt="EntryAction,VotePointLinkUnderTitle,PostPage">
-                                <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-                                    <span itemprop="ratingValue" style="display: none;">5</span>
-                                    <span itemprop="ratingCount" class="badge-item-love-count">6,789</span>
-                                </span> points
-                            </a>
-                            ·
-                            <a class="comment badge-evt"
-                               href="#comment"
-                               data-evt="EntryAction,CommentLinkUnderTitle,PostPage">
-                                <span class="badge-item-comment-count">244</span> comments</a>
-                        </p>
-                    </header>
+                                {{--<p class="post-meta">--}}
+                                {{--<a class="badge-evt point" id="love-count-{{$post->code}}" href="javascript:;"--}}
+                                {{--data-evt="EntryAction,VotePointLinkUnderTitle,PostPage">--}}
+                                {{--<span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">--}}
+                                {{--<span itemprop="ratingValue" style="display: none;">5</span>--}}
+                                {{--<span itemprop="ratingCount" class="badge-item-love-count">6,789</span>--}}
+                                {{--</span> points--}}
+                                {{--</a>--}}
+                                {{--·--}}
+                                {{--<a class="comment badge-evt"--}}
+                                {{--href="#comment"--}}
+                                {{--data-evt="EntryAction,CommentLinkUnderTitle,PostPage">--}}
+                                {{--<span class="badge-item-comment-count">244</span> comments</a>--}}
+                                {{--</p>--}}
+                            </header>
+                            <div class="more-info-box">
+                                <div class="post-meta">
+                                    <div class="user-info">
+                                        <span class="post-count-point">
+                                            <i class="fa fa-smile-o"></i>
+                                            <span class="text-highlight ng-binding">{!! $post->points !!}</span> điểm
+                                        </span>
+                                        <span class="post-count-view">
+                                            <i class="fa fa-eye"></i>
+                                            <span class="text-highlight">{!! $post->views !!}</span> lượt xem
+                                        </span>
+                                        <span class="post-count-comment">
+                                            <i class="fa fa-comments"></i>
+                                            <span class="text-highlight">{!! $post->comments !!}</span> bình luận
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right-box">
+                            <div class="creator">
+                                <span class="timer">{!! trans('funny/posts.post_time') !!} {!! Date::parse($post->created_at)->diffForHumans() !!} {!! trans('funny/posts.post_by') !!}</span>
+
+                                <div class="creator-detail">
+                                    <a href="" title="{{$post->name}}" target="_blank">
+                                        <img class="avatar" src="{{Timthumb::link($post->avatar,32,32)}}"/>
+
+                                        <div class="info">
+                                            <span class="name">{{$post->name}}</span>
+                                            <span class="point"></span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+
                     <div class="badge-toolbar-pre fixed-wrap-post-bar">
                         <div class="badge-entry-toolbar-sticky post-afterbar-a in-post-top">
                             <ul class="badge-item-vote-container horizontal-vote  ">
                                 <li><a class="badge-item-vote-up up" href="javascript:void(0);"
-                                       rel="nofollow"><span>UP</span></a></li>
+                                       rel="nofollow">
+                                    </a>
+                                </li>
                                 <li><a class="badge-item-vote-down down" href="javascript:void(0);"
-                                       rel="nofollow"><span>DOWN</span></a></li>
+                                       rel="nofollow"></a></li>
                             </ul>
                             <div class="share">
                                 <ul>
@@ -122,27 +165,6 @@
                             </div>
                         </div>
                     </div>
-                    {{--<div class="post-afterbar-a in-post-bot full-width">--}}
-                    {{--<div class="share badge-share-bar">--}}
-                    {{--<ul>--}}
-                    {{--<li>--}}
-                    {{--<a class="badge-facebook-share badge-facebook-bot-share badge-evt badge-track btn-share facebook"--}}
-                    {{--href="javascript:;" data-track="social,fb.s,,,d,{{$post->code}},p"--}}
-                    {{--data-evt="Facebook-Share-Bot,PostClicked,http://9gag.com/gag/aRVzQVy"--}}
-                    {{--data-share="http://9gag.com/gag/aRVzQVy?ref=fb.s" rel="nofollow">Share on--}}
-                    {{--Facebook</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                    {{--<a class="badge-twitter-share badge-twitter-bot-share badge-evt badge-track btn-share twitter"--}}
-                    {{--href="javascript:void(0);" data-track="social,t.s,,,d,{{$post->code}},p"--}}
-                    {{--data-evt="Twitter-Share-Bot,PostClicked,http://9gag.com/gag/aRVzQVy"--}}
-                    {{--data-title="RWD%20ftw."--}}
-                    {{--data-share="http://9gag.com/gag/aRVzQVy?ref=t" rel="nofollow">Share on--}}
-                    {{--Twitter</a>--}}
-                    {{--</li>--}}
-                    {{--</ul>--}}
-                    {{--</div>--}}
-                    {{--</div>--}}
                     <div class="badge-entry-info post-afterbar-meta">
                         <p class="left">
                             Đăng bởi {!! HTML::link("",$post->name,['target'=>'_blank','title'=>$post->name]) !!}
@@ -158,14 +180,10 @@
                     </div>
                 </article>
             </section>
-            <div id="comment">
-
-            </div>
-            <div id="comments">
-
-            </div>
+            <div id="comment-box"></div>
+            <div id="comments"></div>
             <section class="post-comment">
-
+                <div class="fb-comments" data-href="{{$post->getLink()}}" data-numposts="5" data-width="100%"></div>
             </section>
         </div>
     </div>

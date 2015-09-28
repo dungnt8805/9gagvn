@@ -95,4 +95,35 @@ interface PostRepositoryInterface
      */
     public function getByCode($code);
 
+    /**
+     * increase view
+     *
+     * @param \App\Funny\Models\Post $post
+     * @return mixed
+     */
+    public function increaseView($post);
+
+    /**
+     *
+     * @param $post_id
+     * @param $user_id
+     * @return integer
+     */
+    public function like($post_id, $user_id);
+
+    /**
+     *
+     * @param $post_id
+     * @param $user_id
+     * @return integer
+     */
+    public function unlike($post_id, $user_id);
+
+    /**
+     *
+     * @param $post_id
+     * @param $user_id
+     * @return integer
+     */
+    public function dislike($post_id, $user_id);
 }

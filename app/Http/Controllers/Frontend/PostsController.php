@@ -52,6 +52,7 @@ class PostsController extends FrontendController
     {
         // $post = $this->post->getByCode($code);
         $post = $this->post->getByCode($code);
+        $this->post->increaseView($post);
         return $this->view("frontend.posts.details", compact('post'));
     }
 }

@@ -40,5 +40,9 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Funny\Repositories\Contracts\TagRepositoryInterface',
             'App\Funny\Repositories\Eloquent\TagRepository'
         );
+        $this->app->bind(
+            'App\Funny\Repositories\Contracts\LikeRepositoryInterface',
+            'App\Funny\Repositories\Eloquent\LikeRepository'
+        );
     }
 }

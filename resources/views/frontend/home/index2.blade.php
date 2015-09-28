@@ -14,7 +14,7 @@
                             <a href="@{{ post.url }}" target="_blank" title="@{{ post.title }}">
                                 <span class="video-frame" ng-if="post.type == 2">
                                     <span class="responsivewrapper"
-                                          style="background-image: url('@{{ post.thumbnail }}')"></span>
+                                          post-back-img="@{{ post.thumbnail }}"></span>
                                     <span class="play">Play</span>
                                 </span>
                             </a>
@@ -27,16 +27,16 @@
 
                             <div class="more-information">
                                 <div class="primary-info">
-                                    <p>Đăng bởi
+                                    <p>{!! trans('funny/posts.post_by_2') !!}
                                         <a href="" target="_blank" title="@{{ post.name }}">@{{ post.name }}</a>
-                                        9 giờ trước
+                                        @{{ post.created_at_string }}
                                     </p>
 
                                 </div>
                                 <div class="info">
                                     <p>
-                                        <i class="fa fa-thumbs-o-up"></i> @{{ post.points }}
-                                        <span class="ng-binding"></span>
+                                        <i class="fa fa-smile-o"></i> <span id="point">@{{ post.likes }}</span>
+
                                     </p>
 
                                     <p>
@@ -44,7 +44,7 @@
                                     </p>
 
                                     <p>
-                                        <i class="fa fa-comment"></i> @{{ post.comments }}
+                                        <i class="fa fa-comments"></i> @{{ post.comments }}
                                     </p>
                                 </div>
                                 <div class="social-btn fb-like">
@@ -53,18 +53,20 @@
                             </div>
                             <div class="badge-entry-sticky-shadow stick-action">
                                 <div class="badge-entry-sticky">
-                                    <ul class="badge-item-vote-container horizontal-vote">
+                                    <ul class="btn-vote left">
                                         <li>
-                                            <a class="badge-item-vote-up up" href="#"></a>
+                                            <a class="badge-item-vote-up up" href="#"
+                                               ng-click="like(post.id)"></a>
                                         </li>
                                         <li>
-                                            <a class="badge-item-vote-down down" href="#"></a>
+                                            <a class="badge-item-vote-down down" href="#" ng-click="dislike(post.id)"></a>
                                         </li>
                                         <li class="btn-comment">
 
                                         </li>
                                         <li class="btn-comment">
-                                            <a class="comment" target="_blank" href="@{{ post.url }}#comment-box">Bìnận</a>
+                                            <a class="comment" target="_blank"
+                                               href="@{{ post.url }}#comment-box">{!! trans('funny/posts.comment') !!}</a>
                                         </li>
                                     </ul>
                                 </div>
