@@ -63,6 +63,44 @@
         </div>
 
     </li>
+    <li>
+        <label for="user_registration">{{ Lang::get('lang.allow_user_register') }}:</label>
+
+        @if(isset($settings['user_registration']))<?php $user_registration = $settings['user_registration'] ?>@else<?php $user_registration = 1 ?>@endif
+        <div class="onoffswitch">
+            {!!  Form::checkbox('user_registration', '', $user_registration, array('class' => 'onoffswitch-checkbox', 'id' => 'user_registration'))  !!}
+            <label class="onoffswitch-label" for="user_registration">
+                <div class="onoffswitch-inner"></div>
+                <div class="onoffswitch-switch"></div>
+            </label>
+        </div>
+
+        <div id="captcha_block" @if(isset($settings['user_registration']) && $settings['user_registration'] == 1) style="display:block" @endif>
+            <label for="captcha">{{ Lang::get('lang.captcha_reg') }}:</label>
+
+            @if(isset($settings['captcha']))<?php $captcha = $settings['captcha'] ?>@else<?php $captcha = 0 ?>@endif
+            <div class="onoffswitch">
+                {!! Form::checkbox('captcha', '', $captcha, array('class' => 'onoffswitch-checkbox', 'id' => 'captcha'))  !!}
+                <label class="onoffswitch-label" for="captcha">
+                    <div class="onoffswitch-inner"></div>
+                    <div class="onoffswitch-switch"></div>
+                </label>
+            </div>
+
+            <div id="captcha_info" @if(isset($settings['captcha']) && $settings['captcha'] == 1) style="display:block" @endif>
+
+                @if(isset($settings['captcha_public_key']))<?php $captcha_public_key = $settings['captcha_public_key'] ?>@else<?php $captcha_public_key = ''; ?>@endif
+                <label for="captcha_public_key">{{ Lang::get('lang.captcha_public_key') }}:</label>
+                {!!  Form::text('captcha_public_key', $captcha_public_key, array('class'=>'form-control'))  !!}
+
+                @if(isset($settings['captcha_private_key']))<?php $captcha_private_key = $settings['captcha_private_key'] ?>@else<?php $captcha_private_key = ''; ?>@endif
+                <label for="captcha_private_key">{{ Lang::get('lang.captcha_private_key') }}:</label>
+                {!!  Form::text('captcha_private_key', $captcha_private_key, array('class'=>'form-control'))  !!}
+
+            </div>
+
+        </div>
+    </li>
 </ul>
 {!! Form::close() !!}
 
