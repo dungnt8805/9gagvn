@@ -26,6 +26,12 @@ Route::group(['namespace' => 'Auth'], function () {
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+
+    Route::get('/', 'DashboardController@index');
+    Route::get('custom_code', 'DashboardController@custom_code');
+    Route::get('settings', 'DashboardController@settings');
+
+
     Route::controller('categories', 'CategoriesController', [
         'getIndex' => 'admin.categories.index',
         'getView' => 'admin.categories.view'
@@ -38,6 +44,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
         'getIndex' => 'admin.posts.index',
         'getCreate' => 'admin.posts.add'
     ]);
+
+    Route::controller('dashboard', 'DashboardController');
 });
 
 Route::group(['namespace' => 'Frontend'], function () {

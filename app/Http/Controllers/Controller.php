@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Funny\Repositories\Eloquent\SettingRepository;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -17,13 +18,18 @@ abstract class Controller extends BaseController
 
     protected $user;
 
+    protected $setting;
+
+    protected $settings;
+
     public function __construct()
     {
         $this->beforeFilter('csrf', ['on' => 'post']);
 
         if (Auth::check())
             $this->user = Auth::user();
-
+        $this->setting = SettingRepository::getInstance();
+        $this->loadSetting();
     }
 
     /**
@@ -59,6 +65,7 @@ abstract class Controller extends BaseController
      */
     protected function view($path, $data = [])
     {
+//        $data['app_settings'] = $this->settings;
         return View::make($path, $data);
     }
 
@@ -82,6 +89,24 @@ abstract class Controller extends BaseController
     protected function json($data)
     {
         return \Response::json($data);
+    }
+
+    protected function loadSetting()
+    {
+        $this->settings = $this->setting->loadAllSettings();
+        View::share('app_settings', $this->settings);
+    }
+
+    /**
+     * Setup the layout used by the controller.
+     *
+     * @return void
+     */
+    protected function setupLayout()
+    {
+        if (!is_null($this->layout)) {
+            $this->layout = View::make($this->layout);
+        }
     }
 
 

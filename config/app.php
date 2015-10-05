@@ -208,6 +208,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Date' => Jenssegers\Date\Date::class,
+        'AppSetting' => \App\Funny\Repositories\Eloquent\SettingRepository::class,
     ],
 
 ];

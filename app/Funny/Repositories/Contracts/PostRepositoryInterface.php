@@ -23,6 +23,11 @@ interface PostRepositoryInterface
      */
     public function getStoreRepo();
 
+    /**
+     *
+     *
+     * @return mixed
+     */
     public function getForm();
 
     /**

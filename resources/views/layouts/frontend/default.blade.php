@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>{!! $app_settings['website_title'] !!}</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <meta name="csrf_token" content="{{ csrf_token() }}">
@@ -20,9 +20,13 @@
     <link rel="stylesheet" href="{{asset('resources/funny/base/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('resources/funny/base/css/dropzone.v2.css')}}"/>
     <link rel="stylesheet" href="{{asset('resources/funny/base/css/9gag.css')}}"/>
+    <style type="text/css">
+        {!! $app_settings['custom_css'] !!}
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
+
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
@@ -33,6 +37,7 @@
     <script src="{{asset('resources/components/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('resources/components/angular-js/angular.js')}}"></script>
     <script src="{{asset('resources/components/angular-js/ng-infinite-scroll.min.js')}}"></script>
+
 </head>
 <body>
 <header id="header-hav" class="navbar navbar-default navbar-fixed-top hl-top-menu-wrap" role="navigation">
@@ -98,12 +103,14 @@
 @section('extend_script')
 @show
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
+<script>(function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
+        js = d.createElement(s);
+        js.id = id;
         js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=949516241786564";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 </body>
+
 </html>

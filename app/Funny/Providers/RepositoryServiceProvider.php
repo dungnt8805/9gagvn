@@ -44,5 +44,9 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Funny\Repositories\Contracts\LikeRepositoryInterface',
             'App\Funny\Repositories\Eloquent\LikeRepository'
         );
+        $this->app->bind(
+            'App\Funny\Repositories\Contracts\SettingRepositoryInterface',
+            'App\Funny\Repositories\Eloquent\SettingRepository'
+        );
     }
 }
