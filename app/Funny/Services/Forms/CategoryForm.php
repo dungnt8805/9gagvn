@@ -16,7 +16,7 @@ class CategoryForm extends AbstractForm
      * @var array
      */
     protected $rules = [
-        'title'        => 'required',
-        'description' => 'required|min:4'
+        'title' => 'required',
+//        'description' => 'required|min:4'
     ];
 }

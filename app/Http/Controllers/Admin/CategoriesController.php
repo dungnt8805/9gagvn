@@ -9,6 +9,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Funny\Repositories\CategoryRepositoryInterface;
+use Illuminate\Support\Str;
 use View;
 
 class CategoriesController extends Controller
@@ -61,9 +62,13 @@ class CategoriesController extends Controller
         if (!$form->isValid()) {
             return $this->redirectBack()->withErrors($form->getErrors())->withInput();
         }
-        $category = $this->category->create($form->getInputData());
-        return $this->redirectRoute('admin.categories.index');
+        $data = $form->getInputData();
+        $data['slug'] = Str::slug($data['title']);
+        $category = $this->category->create($data);
+//        return $this->redirectRoute('admin.categories.index');
+        return $this->returnTo('/admin/#/categories');
     }
+
 
     /**
      * Show the category edit form
@@ -93,14 +98,18 @@ class CategoriesController extends Controller
         if (!$form->isValid()) {
             return $this->redirectBack()->withErrors($form->getMessages())->withInput();
         }
-        $category = $this->category->update($form->getInputData());
-        return $this->redirectRoute('admin.categories.view', $id);
+        $data = $form->getInputData();
+        $data['slug'] = Str::slug($data['title']);
+        $category = $this->category->update($data, $id);
+//        return $this->redirectRoute('admin.categories.view', $id);
+        return $this->returnTo('/admin/#/categories');
     }
 
     /**
      * @return mixed
      */
-    public function postDelete(){
+    public function postDelete()
+    {
         return $this->json([]);
     }
 }

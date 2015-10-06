@@ -38,6 +38,8 @@
     <script src="{{asset('resources/components/angular-js/angular.js')}}"></script>
     <script src="{{asset('resources/components/angular-js/ng-infinite-scroll.min.js')}}"></script>
 
+
+
 </head>
 <body>
 <header id="header-hav" class="navbar navbar-default navbar-fixed-top hl-top-menu-wrap" role="navigation">
