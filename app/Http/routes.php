@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'DashboardController@index');
     Route::get('custom_code', 'DashboardController@custom_code');
     Route::get('settings', 'DashboardController@settings');
-
+    Route::post('settings','DashboardController@update_settings');
 
     Route::controller('categories', 'CategoriesController', [
         'getIndex' => 'admin.categories.index',

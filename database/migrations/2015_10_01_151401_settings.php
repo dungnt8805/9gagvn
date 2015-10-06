@@ -17,7 +17,7 @@ class Settings extends Migration
             $table->increments('id');
             $table->string('name')->index();
             $table->longText('value');
-            $table->tinyInteger('type', 1)->default(1);
+            $table->tinyInteger('type')->default(1);
             $table->boolean('autoload');
         });
     }

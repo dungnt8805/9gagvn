@@ -19,4 +19,6 @@ class Setting extends Model
 
 
     const GENERAL_TYPE = 1;
+    
+    const KEY_SETTINGS = 'SETTINGS_BY_TYPE_';
 }

@@ -37,4 +37,12 @@ class DashboardController extends AdminController
         $settings = $this->setting->loadAllSettingsByType(Setting::GENERAL_TYPE);
         return $this->view('admin/dashboard/settings/index', ['settings' => $settings]);
     }
+    
+    public function update_settings(){
+        $input = $this->input();
+        
+        $this->setting->updateGeneralSettings($input);
+        
+        return $this->returnTo('/admin/#/settings');
+    }
 }

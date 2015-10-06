@@ -108,6 +108,10 @@ abstract class Controller extends BaseController
             $this->layout = View::make($this->layout);
         }
     }
+    
+    protected function returnTo($url,$data = []){
+        return Redirect::to($url)->with($data);
+    }
 
 
 }
