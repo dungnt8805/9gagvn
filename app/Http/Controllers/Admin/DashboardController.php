@@ -10,6 +10,10 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Funny\Models\Setting;
+use App\Funny\Models\Post;
+use App\Funny\Models\Category;
+use App\Models\User;
+use App\Funny\Models\Comment;
 
 class DashboardController extends AdminController
 {
@@ -20,7 +24,12 @@ class DashboardController extends AdminController
 
     public function index()
     {
-        return $this->view('admin/dashboard/index');
+        $users = User::count();
+        $posts = Post::count();
+        $categories = Category::count();
+        $comments = Comment::count();
+        return $this->view('admin/dashboard/index', ['users' => $users, 'posts' => $posts, 'categories' => $categories, 'comments' => $comments]);
+
     }
 
     public function custom_code()
@@ -37,12 +46,13 @@ class DashboardController extends AdminController
         $settings = $this->setting->loadAllSettingsByType(Setting::GENERAL_TYPE);
         return $this->view('admin/dashboard/settings/index', ['settings' => $settings]);
     }
-    
-    public function update_settings(){
+
+    public function update_settings()
+    {
         $input = $this->input();
-        
+
         $this->setting->updateGeneralSettings($input);
-        
+
         return $this->returnTo('/admin/#/settings');
     }
 }

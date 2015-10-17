@@ -11,6 +11,10 @@ class CategorySeeder extends Seeder
 {
     public function run()
     {
+        $categories = [
+            ['title' => 'Gái xinh', 'slug' => 'gai-xinh'],
+            ['title' => 'TV-how', 'slug' => 'tv-show'],
+        ];
         DB::table('categories')->insert();
     }
 }

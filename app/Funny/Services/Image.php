@@ -13,6 +13,7 @@ use Config,
     Log,
     Carbon\Carbon,
     Dflydev\ApacheMimeTypes\PhpRepository as DFlyDevMiMe,
+    App\Funny\Services\Youtube,
     Illuminate\Support\Facades\Storage;
 
 class Image

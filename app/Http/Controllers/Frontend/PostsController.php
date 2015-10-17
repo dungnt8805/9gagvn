@@ -34,7 +34,7 @@ class PostsController extends FrontendController
     {
         $type = Request::input('type', '');
         $post = $this->post->getNew();
-        return $this->view('frontend.posts.add', compact('post', 'type'));
+        return $this->view('gag.frontend.post.add', compact('post', 'type'));
     }
 
     public function postAdd()
@@ -50,9 +50,20 @@ class PostsController extends FrontendController
 
     public function getDetails($code)
     {
-        // $post = $this->post->getByCode($code);
         $post = $this->post->getByCode($code);
-        $this->post->increaseView($post);
-        return $this->view("frontend.posts.details", compact('post'));
+        $next = $this->post->getNext($post->id);
+        $prev = $this->post->getPrev($post->id);
+        return $this->view('gag.frontend.post.details', compact('post', 'next', 'prev'));
+    }
+
+    /**
+     * Request a random post
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function random()
+    {
+        $random = $this->post->randomPost();
+        return $this->redirectRoute('post.details', ['code' => $random->code]);
     }
 }

@@ -257,7 +257,7 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
     {
         $query = $this->model->select('posts.id', 'posts.code', 'posts.title', 'posts.thumbnail', 'posts.type', 'posts.embed'
             , 'posts.summary', 'posts.content', 'posts.views', 'posts.created_at', 'username', 'users.avatar', 'posts.user_id'
-            , 'users.name', 'comments', 'youtube_id')
+            , 'users.name', 'comments', 'youtube_id', 'posts.type', 'posts.video_url')
             ->join('users', 'users.id', '=', 'posts.user_id')
 //            ->join('comments','comments.post_id','=','posts.id')
             ->whereCode($code)->whereActive(true)->first();
@@ -356,5 +356,42 @@ class PostRepository extends BaseRepository implements PostRepositoryInterface
             }
         }
         return $i;
+    }
+
+    /**
+     * Get random post from database
+     *
+     * @return \App\Funny\Models\Post $post
+     *
+     */
+    public function randomPost()
+    {
+        $query = $this->model;
+        $random = $query->whereActive(1)->orderBy(\DB::raw('RAND()'))->first();
+        return $random;
+    }
+
+    /**
+     * Get the next article from database
+     *
+     * @param $post_id
+     * @return string
+     */
+    public function getNext($post_id)
+    {
+        $next = $this->model->whereActive(1)->where('id', '>', $post_id)->orderBy('id', 'asc')->first();
+        return is_null($next) ? null : $next->code;
+    }
+
+    /**
+     * Get the prev article from database
+     *
+     * @param $post_id
+     * @return string
+     */
+    public function getPrev($post_id)
+    {
+        $prev = $this->model->whereActive(1)->where('id', '<', $post_id)->orderBy('id', 'desc')->first();
+        return is_null($prev) ? null : $prev->code;
     }
 }

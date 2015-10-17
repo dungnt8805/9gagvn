@@ -30,7 +30,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::get('/', 'DashboardController@index');
     Route::get('custom_code', 'DashboardController@custom_code');
     Route::get('settings', 'DashboardController@settings');
-    Route::post('settings','DashboardController@update_settings');
+    Route::post('settings', 'DashboardController@update_settings');
+
+    Route::get('dashboard', 'DashboardController@dashboard');
 
     Route::controller('categories', 'CategoriesController', [
         'getIndex' => 'admin.categories.index',
@@ -54,9 +56,12 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('/', ['as' => 'HomePage', 'uses' => 'HomeController@getIndex']);
     Route::post('/', ['as' => 'HomePage', 'uses' => 'HomeController@getIndex']);
 
-    Route::group(['prefix' => 'post'], function () {
-        Route::get('{code}', ['as' => 'post.details', 'uses' => 'PostsController@getDetails']);
+    # upload
+//    Route::get('upload', ['as' => 'post.new', 'uses' => 'PostsController@getUpload']);
 
+    Route::group(['prefix' => 'post'], function () {
+        Route::get('random', ['as' => 'post.random', 'uses' => 'PostsController@random']);
+        Route::get('{code}', ['as' => 'post.details', 'uses' => 'PostsController@getDetails']);
         Route::get('add-a-fun', ['as' => 'post.add', 'uses' => 'PostsController@getAdd']);
         Route::post('add-a-fun', 'PostsController@postAdd');
     });
@@ -64,5 +69,8 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::controller('medias', 'MediasController', [
 
     ]);
+
+    Route::get('crawler', 'CrawlerController@getCrawler');
+    Route::post('crawler', 'CrawlerController@postCrawler');
 
 });

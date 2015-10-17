@@ -93,8 +93,10 @@ abstract class Controller extends BaseController
 
     protected function loadSetting()
     {
+        $this->user = Auth::check() ? Auth::user() : null;
+
         $this->settings = $this->setting->loadAllSettings();
-        View::share('app_settings', $this->settings);
+        View::share(['app_settings' => $this->settings, 'logged_user' => $this->user]);
     }
 
     /**
@@ -108,8 +110,9 @@ abstract class Controller extends BaseController
             $this->layout = View::make($this->layout);
         }
     }
-    
-    protected function returnTo($url,$data = []){
+
+    protected function returnTo($url, $data = [])
+    {
         return Redirect::to($url)->with($data);
     }
 

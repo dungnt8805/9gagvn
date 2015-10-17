@@ -48,6 +48,30 @@ body > .header {
   right: 0;
   z-index: 1030;
 }
+/*Edit users*/
+#formedituser .modal-dialog{
+  width: 400px;
+}
+#formedituser .group_control{
+  margin: 10px 0;
+  padding: 0 20px;
+  overflow: hidden;
+}
+#formedituser .group_control label{
+  float: left;
+  width: 35%;
+}
+#formedituser p.username,#formedituser select.form-control{
+  float: left;
+  width: 65%;
+}
+#formedituser .group_control:last-child{
+  text-align: right;
+}
+#formedituser .group_control button{
+  padding: 6px 20px;
+}
+/*end edit users*/
 /* Define 2 column template */
 .right-side,
 .left-side {
@@ -3541,83 +3565,83 @@ form ul{
 }
 
 .enable_watermark_info {
-    display: none;
-    padding: 10px;
-    border: 2px solid #ddd;
-    border-radius: 3px;
+  display: none;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 3px;
 }
 .enable_watermark_info .image {
-    float: left;
+  float: left;
 }
 .enable_watermark_info .position {
-    float: right;
+  float: right;
 }
 .onoffswitch {
-    position: relative;
-    width: 90px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+  position: relative;
+  width: 90px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 .onoffswitch-checkbox {
-    display: none;
+  display: none;
 }
 .onoffswitch-label {
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    border: 2px solid #999;
-    border-radius: 20px;
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #999;
+  border-radius: 20px;
 }
 .onoffswitch-inner {
-    width: 200%;
-    margin-left: -100%;
-    -webkit-transition: margin .3s ease-in 0s;
-    transition: margin .3s ease-in 0s;
+  width: 200%;
+  margin-left: -100%;
+  -webkit-transition: margin .3s ease-in 0s;
+  transition: margin .3s ease-in 0s;
 }
 .onoffswitch-inner:after, .onoffswitch-inner:before {
-    float: left;
-    width: 50%;
-    height: 30px;
-    padding: 0;
-    line-height: 30px;
-    font-size: 14px;
-    font-family: Trebuchet, Arial, sans-serif;
-    font-weight: 700;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  float: left;
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  font-size: 14px;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: 700;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-    content: "ON";
-    padding-left: 10px;
-    background-color: #2FCCFF;
-    color: #FFF;
+  content: "ON";
+  padding-left: 10px;
+  background-color: #2FCCFF;
+  color: #FFF;
 }
 .onoffswitch-inner:after {
-    content: "OFF";
-    padding-right: 10px;
-    background-color: #EEE;
-    color: #999;
-    text-align: right;
+  content: "OFF";
+  padding-right: 10px;
+  background-color: #EEE;
+  color: #999;
+  text-align: right;
 }
 .onoffswitch-switch {
-    width: 18px;
-    margin: 6px;
-    background: #FFF;
-    border: 2px solid #999;
-    border-radius: 20px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 56px;
-    -webkit-transition: all .3s ease-in 0s;
-    transition: all .3s ease-in 0s;
+  width: 18px;
+  margin: 6px;
+  background: #FFF;
+  border: 2px solid #999;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 56px;
+  -webkit-transition: all .3s ease-in 0s;
+  transition: all .3s ease-in 0s;
 }
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner {
-    margin-left: 0;
+  margin-left: 0;
 }
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch {
-    right: 0;
+  right: 0;
 }
 
 #tags_tag{
@@ -3637,13 +3661,15 @@ form ul{
   float:left;
   padding-left:30px;
   position:relative;
+  font-size: 16px;
+  line-height: 28px;
 }
 
 #version_info .current_version i{
   font-size:30px;
   position:absolute;
   left:0px;
-  top:-4px;
+  top:0px;
   color:#D9534F;
 }
 

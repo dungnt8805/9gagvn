@@ -4,7 +4,7 @@
  * @date 8/25/2015
  */
 
-namespace app\Funny\Models;
+namespace App\Funny\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
@@ -22,6 +22,9 @@ class Category extends Model
     CONST VIDEO_TYPE = 2;
     CONST COMIC_TYPE = 3;
     CONST MEME_TYPE = 4;
+
+    const cache_key = 'categories_list';
+
     /**
      * Many to Many relation
      *
@@ -29,7 +32,7 @@ class Category extends Model
      */
     public function posts()
     {
-        return $this->belongsToMany(Post::class,'category_post','category_id','post_id');
+        return $this->belongsToMany(Post::class, 'category_post', 'category_id', 'post_id');
     }
 
 }

@@ -1,15 +1,15 @@
 // Page Load Make sure to load the correct location
 
 $('document').ready(function(){
-  hash = location.hash.substr(1).split('&');
-  if(hash[0]){
-    section = hash[0].replace('/', '');
-    console.log(section);
-    if(typeof section === "undefined" || section == '') section = 'dashboard';
-    load_section( $('#' + section + '-section') );
-  } else {
-    load_section($('#dashboard-section'));
-  }
+  //hash = location.hash.substr(1).split('&');
+  //if(hash[0]){
+  //  section = hash[0].replace('/', '');
+  //  console.log(section);
+  //  if(typeof section === "undefined" || section == '') section = 'dashboard';
+  //  load_section( $('#' + section + '-section') );
+  //} else {
+  //  load_section($('#dashboard-section'));
+  //}
 });
 
 
@@ -18,8 +18,8 @@ $('document').ready(function(){
 $('document').ready(function(){
     $('body').on('click', 'a.ajax', function(e) {
         console.log('hit');
-        e.preventDefault(); // stop the browser from following the link      
-        load_section($(this));        
+        //e.preventDefault(); // stop the browser from following the link
+        //load_section($(this));
     });
 
 });

@@ -133,4 +133,28 @@ interface PostRepositoryInterface
      * @return integer
      */
     public function dislike($post_id, $user_id);
+
+    /**
+     * Get random post from database
+     *
+     * @return \App\Funny\Models\Post $post
+     *
+     */
+    public function randomPost();
+
+    /**
+     * Get the next article from database
+     *
+     * @param $post_id
+     * @return string
+     */
+    public function getNext($post_id);
+
+    /**
+     * Get the prev article from database
+     *
+     * @param $post_id
+     * @return string
+     */
+    public function getPrev($post_id);
 }

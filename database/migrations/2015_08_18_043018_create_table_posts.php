@@ -20,9 +20,10 @@ class CreateTablePosts extends Migration
             $table->tinyInteger('type')->default(1);
             $table->string('title');
             $table->string('thumbnail')->nullable();
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->string('summary');
             $table->text('embed')->nullable();
+            $table->text('video_url')->nullable();
             $table->text('content');
             $table->string('code', 10)->unique();
             $table->string('youtube_id', 15)->nullable();

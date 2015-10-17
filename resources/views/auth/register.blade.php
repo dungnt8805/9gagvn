@@ -1,4 +1,4 @@
-@extends("layouts.frontend.default")
+@extends("bk.layouts.frontend.default")
 @section("content")
 <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0 centered-page">
     <div class="panel panel-primary">
