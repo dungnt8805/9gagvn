@@ -28,7 +28,7 @@ class DashboardController extends AdminController
         $posts = Post::count();
         $categories = Category::count();
         $comments = Comment::count();
-        return $this->view('admin/dashboard/index', ['users' => $users, 'posts' => $posts, 'categories' => $categories, 'comments' => $comments]);
+        return $this->view('gag/admin/dashboard/index', ['users' => $users, 'posts' => $posts, 'categories' => $categories, 'comments' => $comments]);
 
     }
 
@@ -38,13 +38,13 @@ class DashboardController extends AdminController
 
         $custom_js = $this->setting->load('custom_js')->value;
 
-        return $this->view('admin/dashboard/settings/custom_code', ['custom_css' => $custom_css, 'custom_js' => $custom_js]);
+        return $this->view('gag/admin/dashboard/settings/custom_code', ['custom_css' => $custom_css, 'custom_js' => $custom_js]);
     }
 
     public function settings()
     {
         $settings = $this->setting->loadAllSettingsByType(Setting::GENERAL_TYPE);
-        return $this->view('admin/dashboard/settings/index', ['settings' => $settings]);
+        return $this->view('gag/admin/dashboard/settings/index', ['settings' => $settings]);
     }
 
     public function update_settings()
@@ -55,4 +55,21 @@ class DashboardController extends AdminController
 
         return $this->returnTo('/admin/#/settings');
     }
+
+    public function updateCustomCss()
+    {
+        $input = $this->input();
+        $css = $input['css'];
+        $custom_css = $this->setting->updateCustomCss($css);
+        return $custom_css;
+    }
+    public function updateCustomJs()
+    {
+        $input = $this->input();
+        $css = $input['js'];
+        $custom_css = $this->setting->updateCustomJavascript($css);
+        return $custom_css;
+    }
+
+
 }

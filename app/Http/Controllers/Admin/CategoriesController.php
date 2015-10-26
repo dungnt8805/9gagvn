@@ -12,7 +12,7 @@ use App\Funny\Repositories\CategoryRepositoryInterface;
 use Illuminate\Support\Str;
 use View;
 
-class CategoriesController extends Controller
+class CategoriesController extends AdminController
 {
     /**
      * category repository
@@ -29,7 +29,7 @@ class CategoriesController extends Controller
      */
     public function __construct(CategoryRepositoryInterface $category)
     {
-//        parent::__construct();
+        parent::__construct();
         $this->category = $category;
     }
 
@@ -48,7 +48,7 @@ class CategoriesController extends Controller
 
         $list = $this->category->getPresenter()->getListTree($sorted, 0, []);
 
-        return View::make('admin.categories.list', compact('category', 'tree', 'list'));
+        return $this->view('gag.admin.categories.list', compact('category', 'tree', 'list'));
     }
 
     /**
@@ -66,7 +66,7 @@ class CategoriesController extends Controller
         $data['slug'] = Str::slug($data['title']);
         $category = $this->category->create($data);
 //        return $this->redirectRoute('admin.categories.index');
-        return $this->returnTo('/admin/#/categories');
+        return $this->returnTo('/admin/categories');
     }
 
 
@@ -102,7 +102,7 @@ class CategoriesController extends Controller
         $data['slug'] = Str::slug($data['title']);
         $category = $this->category->update($data, $id);
 //        return $this->redirectRoute('admin.categories.view', $id);
-        return $this->returnTo('/admin/#/categories');
+        return $this->returnTo('/admin/categories');
     }
 
     /**

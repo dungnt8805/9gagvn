@@ -63,6 +63,6 @@ class HomeController extends FrontendController
             $response = ['status' => '1', 'msg' => 'success', 'data' => $tmp];
             return $this->json($response);
         } else
-            return $this->view('frontend.home.index3');
+            return $this->view('gag.frontend.homes.index');
     }
 }

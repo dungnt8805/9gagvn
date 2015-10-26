@@ -1,40 +1,24 @@
-@extends("bk.layouts.frontend.default")
+@extends("gag.layouts.frontend.default")
 @section("content")
-<div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0 centered-page">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h1 class="panel-title big">Create new user</h1>
-        </div>
-        <div class="panel-body">
-            {!! Form::open(['url'=>'/register','class'=>'form-vertical']) !!}
-                <div class="form-group">
-                    {!! Form::label('name','Name') !!}
-                    <div class="controls">
-                        {!! Form::text('name',old('name'),['class'=>'form-control input-lg','id'=>'name']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('email','Email') !!}
-                    <div class="controls">
-                        {!! Form::text('email', old('email'),['class'=>'form-control input-lg','id'=>'email']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('password','Password') !!}
-                    <div class="controls">
-                        {!! Form::password('password', ['class'=>'form-control input-lg','id'=>'password','type'=>'password']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('password_confirmation','Password Confirmation') !!}
-                    <div class="controls">
-                        {!! Form::password('password_confirmation', ['class'=>'form-control input-lg','id'=>'password_confirmation','type'=>'password']) !!}
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Signup</button>
-                {!! HTML::link('/login','Login',['class'=>'btn btn-link pull-right']) !!}
-            {!! Form::close() !!}
-        </div>
+    @if(session()->has('error'))
+        @include('partials/error', ['type' => 'danger', 'message' => session('error')])
+    @endif
+    {!! Form::open(['url'=>'register','class'=>'form-signin']) !!}
+    <h2 class="form-login-heading">{!! trans('lang.sign_up_with') !!}</h2>
+    <div class="social-signup">
+        <a class="facebook-signup" href="{!! route('auth.facebook') !!}"></a>
+        <a class="google-signup" href=""></a>
     </div>
-</div>
+    <div class="line"></div>
+    <h2 class="form-login-heading-second">{!! trans('lang.or_signup_with') !!}</h2>
+    <div class="line"></div>
+    {!! Form::text('name',old('name'),['class'=>'form-control','placeholder'=>trans('lang.name')]) !!}
+    {!! Form::text('email',old('email'),['class'=>'form-control off-border-radius','placeholder'=>trans('lang.email_address')]) !!}
+    {!! Form::password('password',['class'=>'form-control off-border-radius off-margin','placeholder'=>trans('lang.password')]) !!}
+    {!! Form::password('password_confirmation',['class'=>'form-control','placeholder'=>trans('lang.confirm_password')]) !!}
+    {!! Form::hidden('redirectTo',Input::get('redirectUrl','/')) !!}
+    {!! Form::button(trans('lang.sign_up'),['type'=>'submit','class'=>'btn btn-lg btn-block btn-color']) !!}
+    {!! Form::close() !!}
+    @include('auth.includes.background')
 @stop
+

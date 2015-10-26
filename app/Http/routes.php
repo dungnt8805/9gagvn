@@ -22,14 +22,19 @@ Route::group(['namespace' => 'Auth'], function () {
 
     Route::get('/auth/facebook', ['as' => 'auth.facebook', 'uses' => 'AuthController@getFacebook']);
 
+    // password controller
+    Route::controller('password', 'PasswordController');
+
     Route::controller('vote', 'VoteController');
 });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
-    Route::get('/', 'DashboardController@index');
-    Route::get('custom_code', 'DashboardController@custom_code');
-    Route::get('settings', 'DashboardController@settings');
+    Route::get('/', ['as' => 'admin.dashboard', 'uses' => 'DashboardController@index']);
+    Route::get('custom_code', ['as' => 'admin.custom_code', 'uses' => 'DashboardController@custom_code']);
+    Route::post('custom_css', 'DashboardController@updateCustomCss');
+    Route::post('custom_js', 'DashboardController@updateCustomJs');
+    Route::get('settings', ['as' => 'admin.settings', 'uses' => 'DashboardController@settings']);
     Route::post('settings', 'DashboardController@update_settings');
 
     Route::get('dashboard', 'DashboardController@dashboard');
@@ -73,4 +78,7 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('crawler', 'CrawlerController@getCrawler');
     Route::post('crawler', 'CrawlerController@postCrawler');
 
+    Route::group(['prefix' => 'users'], function () {
+        Route::post('top_sidebar', 'UsersController@topSideBar');
+    });
 });

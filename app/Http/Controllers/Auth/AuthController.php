@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Frontend\FrontendController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -10,8 +11,9 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Socialite;
 
-class AuthController extends Controller
+class AuthController extends FrontendController
 {
+    protected $redirectTo = '/';
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -33,6 +35,7 @@ class AuthController extends Controller
     public function __construct()
     {
         parent::__construct();
+        $this->redirectTo = \Input::get('redirectUrl', '/');
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 

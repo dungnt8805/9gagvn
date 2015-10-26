@@ -1,29 +1,24 @@
-@extends("bk.layouts.frontend.default")
-
+@extends('gag.layouts.frontend.default')
 @section("content")
-    <div class="col-md-6 col-md-offset-3 col-xs-12 col-xs-offset-0 centered-page">
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h1 class="panel-title big">Login</h1>
-            </div>
-            <div class="panel-body">
-                {!! Form::open(['url'=>'/login','class'=>'form-vertical']) !!}
-                <div class="form-group">
-                    {!! Form::label('email','Email') !!}
-                    <div class="controls">
-                        {!! Form::text('email', old('email'),['class'=>'form-control input-lg','id'=>'email']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('password','Password') !!}
-                    <div class="controls">
-                        {!! Form::password('password', ['class'=>'form-control input-lg','id'=>'password','type'=>'password']) !!}
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Login</button>
-                {!! HTML::link('/register','Register',['class'=>'btn btn-link pull-right']) !!}
-                {!! Form::close() !!}
-            </div>
-        </div>
+    @if(Session::has('error'))
+        {!! session('error') !!}
+    @endif
+    {!! Form::open(['url'=>'login', 'class'=>'form-signin']) !!}
+    <h2 class="form-login-heading">{!! trans('lang.sign_in_with') !!}</h2>
+    <div class="social-signup">
+        <a class="facebook-signup" href="{!! route('auth.facebook') !!}"></a>
+        <a class="google-signup" href=""></a>
     </div>
+    <div class="line"></div>
+    <h2 class="form-login-heading-second">{!! trans('lang.or_sign_in_with') !!}</h2>
+    <div class="line"></div>
+    {!! Form::text('email',null,['class'=>'form-control','placeholder'=>trans('lang.username_or_email'),'id'=>'email','autofocus']) !!}
+    {!! Form::password('password',['class'=>'form-control','placeholder'=>trans('lang.password'),'id'=>'password']) !!}
+    {!! Form::hidden('redirectTo',Input::get('redirectUrl','/'),['id'=>'redirectUrl']) !!}
+    {!! Form::button(trans('lang.sign_in'),['class'=>'btn btn-lg btn-block btn-color btn-signin','type'=>'submit']) !!}
+    <a href="" class="reset_password"
+       style="width: 100%; text-align: center; display: block">{!! trans('lang.forgot_password') !!}</a>
+    {!! Form::close() !!}
+    <div id="overlay"></div>
+    @include('auth.includes.background')
 @stop

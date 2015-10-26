@@ -57,6 +57,7 @@
                     @if($post->not_safe_for_work && is_null($logged_user))
                     @else
                         @if($post->type == \App\Funny\Models\Post::PHOTO_TYPE)
+
                         @elseif($post->type == \App\Funny\Models\Post::VIDEO_TYPE)
 
                             <div calss="video_container <?php if(strpos($post->video_url, 'vine') > 0){ echo 'vine'; } ?>">
@@ -150,10 +151,10 @@
                 </div>
 
                 <div class="clearfix"></div>
-                <h3 class="comment-type site active"
+                <!--<h3 class="comment-type site active"
                     data-comments="#current_comments"><?= Lang::get('lang.site_comments') ?> (<span
                             class="current_comment_count site_comments"></span>)</h3>
-
+-->
                 <h3 class="comment-type facebook"
                     data-comments="#facebook_comments"><?= Lang::get('lang.facebook_comments') ?> (<span
                             class="current_comment_count"><fb:comments-count

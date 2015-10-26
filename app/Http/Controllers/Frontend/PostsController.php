@@ -26,7 +26,7 @@ class PostsController extends FrontendController
     {
         parent::__construct();
         $this->post = $post;
-        $this->middleware('auth', ['except' => ['getDetails']]);
+        $this->middleware('auth', ['only' => ['getAdd', 'postAdd']]);
     }
 
 
